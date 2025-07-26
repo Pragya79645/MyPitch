@@ -63,7 +63,7 @@ export default function LoadingScreen() {
             transition={{ delay: 0.3 }}
             className="text-4xl font-bold mb-4"
           >
-            Pragya's Pitch
+            Pragya&apos;s Pitch
           </motion.h1>
 
           <motion.p key={currentText} initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-xl mb-8">

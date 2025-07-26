@@ -140,7 +140,7 @@ const SwipeCards = () => {
                         Journey Complete!
                       </h3>
                       <p className="text-gray-800 dark:text-gray-100 mb-6 leading-relaxed drop-shadow-sm">
-                        You've explored my entire journey. Ready to build something amazing together?
+                        You&apos;ve explored my entire journey. Ready to build something amazing together?
                       </p>
                       <button
                         onClick={resetCards}
@@ -335,7 +335,7 @@ const Card = ({
   const rotate = useTransform(x, [-200, 200], [-25, 25])
   const opacity = useTransform(x, [-200, -100, 0, 100, 200], [0, 1, 1, 1, 0])
 
-  const handleDragEnd = (event: any, info: PanInfo) => {
+  const handleDragEnd = (event: unknown, info: PanInfo) => {
     const threshold = 100
     const velocity = info.velocity.x
     const movement = info.offset.x
@@ -371,6 +371,7 @@ const Card = ({
       <div className="w-80 h-[500px] bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-gray-800/30 dark:border-gray-200/30">
         {/* Image */}
         <div className="h-64 w-full overflow-hidden relative">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={card.url || "/placeholder.svg"}
             alt={card.title}

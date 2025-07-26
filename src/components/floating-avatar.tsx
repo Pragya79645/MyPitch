@@ -30,12 +30,12 @@ export default function FloatingAvatar() {
   const [interactionMode, setInteractionMode] = useState<"auto" | "manual">("auto")
   const [currentEmotion, setCurrentEmotion] = useState<"neutral" | "excited" | "confident" | "passionate">("neutral")
   const [energyLevel, setEnergyLevel] = useState(0.5)
-  const [mouseDistance, setMouseDistance] = useState(1)
+  // const [mouseDistance, setMouseDistance] = useState(1) // Removed: assigned but never used
   const [isNearMouse, setIsNearMouse] = useState(false)
   const containerRef = useRef<HTMLDivElement>(null)
   const [showPauseMessage, setShowPauseMessage] = useState(false)
   const [isTransitioning, setIsTransitioning] = useState(false)
-  const [nextMessagePreview, setNextMessagePreview] = useState<Message | null>(null)
+  // const [nextMessagePreview, setNextMessagePreview] = useState<Message | null>(null) // Removed: assigned but never used
   const [conversationProgress, setConversationProgress] = useState(0)
   const [messageOpacity, setMessageOpacity] = useState(1)
 
@@ -110,7 +110,7 @@ export default function FloatingAvatar() {
 
       // Calculate normalized distance (0 = at center, 1 = far away)
       const normalizedDistance = Math.min(distance / 300, 1)
-      setMouseDistance(normalizedDistance)
+      // setMouseDistance(normalizedDistance) // Removed: variable is unused
       setIsNearMouse(distance < 200)
 
       // 3D rotation based on mouse position
@@ -225,7 +225,7 @@ export default function FloatingAvatar() {
     }
 
     showMessageSequence(0)
-  }, [isActive, interactionMode])
+  }, [isActive, interactionMode, messages, showMessage, showPauseMessage])
 
   const handleAvatarClick = () => {
     if (!isActive) {

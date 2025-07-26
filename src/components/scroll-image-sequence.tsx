@@ -23,7 +23,7 @@ export default function ScrollImageSequence({ imageArray, frameHeight }: ScrollI
           const img = new window.Image()
           img.crossOrigin = "anonymous"
           img.onload = () => resolve(img)
-          img.onerror = (error: any) => {
+          img.onerror = (error: unknown) => {
             console.error(`Failed to load image ${index}:`, src, error)
             // Create a fallback image instead of rejecting
             const fallbackImg = new window.Image()
