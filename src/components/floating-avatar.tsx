@@ -225,7 +225,7 @@ export default function FloatingAvatar() {
     }
 
     showMessageSequence(0)
-  }, [isActive, interactionMode, messages, showMessage, showPauseMessage])
+  }, [isActive, interactionMode, messages])
 
   const handleAvatarClick = () => {
     if (!isActive) {

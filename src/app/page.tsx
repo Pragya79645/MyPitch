@@ -25,7 +25,6 @@ import LoadingScreen from "@/components/loading-screen"
 
 import DeveloperSkitsShowcase from "@/components/developer-skits-showcase"
 import SwipeCards from "@/components/swipe-cards"
-import AnimatedBackground from "@/components/animated-background"
 
 export default function PitchWebsite() {
   const [darkMode, setDarkMode] = useState(false)
@@ -53,37 +52,28 @@ export default function PitchWebsite() {
   }
 
   return (
-    <div className="min-h-screen relative">
-      {/* Animated Background */}
-      <AnimatedBackground />
-
-      {/* Floating Icons */}
+    <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark bg-gray-900" : "bg-white"}`}>
       <FloatingIcons />
 
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900/20 dark:bg-gray-900/40 backdrop-blur-xl border-b border-gray-800/20 dark:border-gray-700/30">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
         <div className="container mx-auto px-4 py-4 flex justify-between items-center">
           <motion.h1
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-lg"
+            className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent"
           >
             Pragya&apos;s Pitch
           </motion.h1>
 
-          <Button
-            variant="ghost"
-            size="icon"
-            onClick={() => setDarkMode(!darkMode)}
-            className="rounded-full bg-gray-900/10 dark:bg-gray-100/10 hover:bg-gray-900/20 dark:hover:bg-gray-100/20 text-gray-900 dark:text-white border border-gray-800/20 dark:border-gray-200/20"
-          >
+          <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full">
             {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
           </Button>
         </div>
       </header>
 
       {/* Hero Section with Floating Avatar */}
-      <section className="pt-20 min-h-screen flex items-center justify-center relative">
+      <section className="pt-20 min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -96,37 +86,32 @@ export default function PitchWebsite() {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-sm text-gray-900 dark:text-white px-4 py-2 rounded-full text-sm font-medium border border-gray-800/30 dark:border-gray-200/30"
+                className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium"
               >
                 <Sparkles className="h-4 w-4" />
                 Google Student Ambassador Candidate
               </motion.div>
 
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
-                <span className="text-gray-900 dark:text-white drop-shadow-lg">Hey Google,</span>
+                <span className="text-gray-900 dark:text-white">Hey Google,</span>
                 <br />
-                <span className="text-gray-900 dark:text-white drop-shadow-lg">I&apos;m Pragya</span>
+                <span className="bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent">
+                  I&apos;m Pragya
+                </span>
               </h1>
 
-              <p className="text-xl text-gray-800 dark:text-gray-100 max-w-lg drop-shadow-md">
+              <p className="text-xl text-gray-600 dark:text-gray-300 max-w-lg">
                 A passionate developer ready to bridge the gap between Google&apos;s innovation and student communities
                 worldwide.
               </p>
             </div>
 
             <div className="flex gap-4">
-              <Button
-                size="lg"
-                className="bg-gray-900/20 dark:bg-gray-100/20 hover:bg-gray-900/30 dark:hover:bg-gray-100/30 text-gray-900 dark:text-white px-8 py-3 rounded-full backdrop-blur-sm border border-gray-800/30 dark:border-gray-200/30"
-              >
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full">
                 <Play className="h-5 w-5 mr-2" />
                 Watch My Pitch
               </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="px-8 py-3 rounded-full border-2 border-gray-800/30 dark:border-gray-200/30 bg-gray-900/10 dark:bg-gray-100/10 hover:bg-gray-900/20 dark:hover:bg-gray-100/20 text-gray-900 dark:text-white backdrop-blur-sm"
-              >
+              <Button variant="outline" size="lg" className="px-8 py-3 rounded-full border-2 bg-transparent">
                 Explore My Work
               </Button>
             </div>
@@ -144,17 +129,16 @@ export default function PitchWebsite() {
       </section>
 
       {/* Video Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gray-900/10 dark:bg-gray-900/20 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-lg">My Personal Pitch</h2>
-            <p className="text-xl text-gray-800 dark:text-gray-100 max-w-2xl mx-auto drop-shadow-md">
+            <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">My Personal Pitch</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Watch why I believe I&apos;m the perfect candidate to represent Google in student communities
             </p>
           </motion.div>
@@ -165,7 +149,7 @@ export default function PitchWebsite() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl border border-gray-800/20 dark:border-gray-200/20 backdrop-blur-sm">
+            <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl">
               <video
                 controls
                 preload="metadata"
@@ -182,17 +166,16 @@ export default function PitchWebsite() {
       </section>
 
       {/* Who I Am Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gray-900/5 dark:bg-gray-900/15 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">Who I Am</h2>
-            <div className="w-24 h-1 bg-gray-800/50 dark:bg-gray-200/50 mx-auto mb-8 rounded-full"></div>
+            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">Who I Am</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mb-8"></div>
           </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-8">
@@ -224,11 +207,11 @@ export default function PitchWebsite() {
                 whileHover={{ y: -10 }}
                 className="text-center"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-sm text-gray-900 dark:text-white rounded-full mb-6 border border-gray-800/30 dark:border-gray-200/30">
+                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-green-500 text-white rounded-full mb-6">
                   {item.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-md">{item.title}</h3>
-                <p className="text-gray-800 dark:text-gray-100 leading-relaxed drop-shadow-sm">{item.description}</p>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{item.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
@@ -239,18 +222,17 @@ export default function PitchWebsite() {
       <SwipeCards />
 
       {/* Why GDSA Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gray-900/10 dark:bg-gray-900/20 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-red-500 via-yellow-500 to-green-500">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center text-gray-900 dark:text-white"
+            className="text-center text-white"
           >
-            <h2 className="text-5xl font-bold mb-8 drop-shadow-lg">Why Google Student Ambassador?</h2>
+            <h2 className="text-5xl font-bold mb-8">Why Google Student Ambassador?</h2>
             <div className="max-w-4xl mx-auto">
-              <p className="text-xl leading-relaxed mb-8 drop-shadow-md text-gray-800 dark:text-gray-100">
+              <p className="text-xl leading-relaxed mb-8">
                 Google&apos;s mission to organize the world&apos;s information and make it universally accessible
                 resonates deeply with my passion for democratizing technology education. As a GDSA, I want to bridge the
                 gap between Google&apos;s cutting-edge innovations and student communities, fostering the next
@@ -268,12 +250,10 @@ export default function PitchWebsite() {
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
                     transition={{ delay: index * 0.2 }}
-                    className="text-center bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm rounded-2xl p-6 border border-gray-800/20 dark:border-gray-200/20"
+                    className="text-center"
                   >
-                    <div className="text-4xl font-bold mb-2 drop-shadow-lg text-gray-900 dark:text-white">
-                      {stat.number}
-                    </div>
-                    <div className="text-lg drop-shadow-md text-gray-800 dark:text-gray-100">{stat.label}</div>
+                    <div className="text-4xl font-bold mb-2">{stat.number}</div>
+                    <div className="text-lg opacity-90">{stat.label}</div>
                   </motion.div>
                 ))}
               </div>
@@ -283,17 +263,16 @@ export default function PitchWebsite() {
       </section>
 
       {/* Projects Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gray-900/5 dark:bg-gray-900/15 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-gray-50 dark:bg-gray-800">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">My Projects</h2>
-            <p className="text-xl text-gray-800 dark:text-gray-100 max-w-2xl mx-auto drop-shadow-md">
+            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">My Projects</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
               Here are some projects that showcase my technical skills and passion for innovation
             </p>
           </motion.div>
@@ -328,39 +307,27 @@ export default function PitchWebsite() {
                 whileHover={{ y: -10, scale: 1.02 }}
                 className="group"
               >
-                <Card className="h-full overflow-hidden border-0 shadow-2xl bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm border border-gray-800/20 dark:border-gray-200/20">
+                <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
                   <div className={`h-2 bg-gradient-to-r ${project.color}`}></div>
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
-                      <Code className="h-8 w-8 text-gray-900 dark:text-white" />
+                      <Code className="h-8 w-8 text-gray-600 dark:text-gray-300" />
                       <div className="flex gap-2">
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8 text-gray-900 dark:text-white hover:bg-gray-900/20 dark:hover:bg-gray-100/20"
-                        >
+                        <Button variant="ghost" size="icon" className="h-8 w-8">
                           <Github className="h-4 w-4" />
                         </Button>
-                        <Button
-                          variant="ghost"
-                          size="icon"
-                          className="h-8 w-8 text-gray-900 dark:text-white hover:bg-gray-900/20 dark:hover:bg-gray-100/20"
-                        >
+                        <Button variant="ghost" size="icon" className="h-8 w-8">
                           <ExternalLink className="h-4 w-4" />
                         </Button>
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 drop-shadow-md">
-                      {project.title}
-                    </h3>
-                    <p className="text-gray-800 dark:text-gray-100 mb-4 leading-relaxed drop-shadow-sm">
-                      {project.description}
-                    </p>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-gray-900/20 dark:bg-gray-100/20 text-gray-900 dark:text-white rounded-full text-sm backdrop-blur-sm border border-gray-800/30 dark:border-gray-200/30"
+                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
                         >
                           {tech}
                         </span>
@@ -375,17 +342,16 @@ export default function PitchWebsite() {
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gray-900/10 dark:bg-gray-900/20 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 relative z-10">
+      <section className="py-20 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">My Vision</h2>
-            <div className="w-24 h-1 bg-gray-800/50 dark:bg-gray-200/50 mx-auto mb-8 rounded-full"></div>
+            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">My Vision</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mb-8"></div>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -396,9 +362,9 @@ export default function PitchWebsite() {
               className="text-center mb-12"
             >
               <div className="relative inline-block">
-                <div className="absolute inset-0 bg-gray-900/20 dark:bg-gray-100/20 rounded-full blur-lg"></div>
-                <div className="relative bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm p-8 rounded-full border border-gray-800/30 dark:border-gray-200/30">
-                  <Lightbulb className="h-16 w-16 text-yellow-600 dark:text-yellow-400 mx-auto drop-shadow-lg" />
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 rounded-full blur-lg opacity-30"></div>
+                <div className="relative bg-white dark:bg-gray-800 p-8 rounded-full">
+                  <Lightbulb className="h-16 w-16 text-yellow-500 mx-auto" />
                 </div>
               </div>
             </motion.div>
@@ -409,11 +375,11 @@ export default function PitchWebsite() {
               viewport={{ once: true }}
               className="text-center"
             >
-              <p className="text-2xl text-gray-900 dark:text-white leading-relaxed mb-8 drop-shadow-md">
+              <p className="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
                 &quot;To create a world where every student has access to cutting-edge technology education and the
                 opportunity to build solutions that matter.&quot;
               </p>
-              <p className="text-lg text-gray-800 dark:text-gray-100 leading-relaxed drop-shadow-sm">
+              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
                 As a Google Student Ambassador, I envision organizing workshops that demystify AI and machine learning,
                 hosting hackathons that solve real-world problems, and building a community where innovation thrives.
                 Together, we can shape the future of technology, one student at a time.
@@ -430,14 +396,11 @@ export default function PitchWebsite() {
 
 
       {/* CTA Section */}
-      <section className="py-20 relative">
-        <div className="absolute inset-0 bg-gray-900/10 dark:bg-gray-900/20 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+      <section className="py-20 bg-gradient-to-r from-blue-600 via-red-500 to-green-500">
+        <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-8 drop-shadow-lg">
-              Let&apos;s Build the Future with Google
-            </h2>
-            <p className="text-xl text-gray-800 dark:text-gray-100 mb-12 max-w-2xl mx-auto drop-shadow-md">
+            <h2 className="text-5xl font-bold text-white mb-8">Let&apos;s Build the Future with Google</h2>
+            <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
               Ready to embark on this incredible journey together? Let&apos;s connect and make a difference in the world
               of technology.
             </p>
@@ -445,7 +408,7 @@ export default function PitchWebsite() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button
                 size="lg"
-                className="bg-gray-900/20 dark:bg-gray-100/20 hover:bg-gray-900/30 dark:hover:bg-gray-100/30 text-gray-900 dark:text-white px-8 py-4 rounded-full text-lg font-semibold backdrop-blur-sm border border-gray-800/30 dark:border-gray-200/30"
+                className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold"
               >
                 <Mail className="h-5 w-5 mr-2" />
                 Get In Touch
@@ -453,7 +416,7 @@ export default function PitchWebsite() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-gray-800/30 dark:border-gray-200/30 text-gray-900 dark:text-white hover:bg-gray-900/20 dark:hover:bg-gray-100/20 px-8 py-4 rounded-full text-lg font-semibold bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm"
+                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-semibold bg-transparent"
               >
                 <Linkedin className="h-5 w-5 mr-2" />
                 Connect on LinkedIn
@@ -464,12 +427,11 @@ export default function PitchWebsite() {
       </section>
 
       {/* Footer */}
-      <footer className="py-12 relative">
-        <div className="absolute inset-0 bg-gray-900/5 dark:bg-gray-900/15 backdrop-blur-sm"></div>
-        <div className="container mx-auto px-4 text-center relative z-10">
+      <footer className="py-12 bg-gray-900 text-white">
+        <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <p className="text-gray-800 dark:text-gray-100 mb-4 drop-shadow-md">Made with ❤️ and lots of ☕ by Pragya</p>
-            <p className="text-sm text-gray-700 dark:text-gray-200 drop-shadow-sm">
+            <p className="text-gray-400 mb-4">Made with ❤️ and lots of ☕ by Pragya</p>
+            <p className="text-sm text-gray-500">
               © 2024 Pragya&apos;s Pitch. Designed for Google Student Ambassador Application.
             </p>
           </motion.div>

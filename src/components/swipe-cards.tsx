@@ -87,9 +87,16 @@ const SwipeCards = () => {
   }
 
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Section Background Overlay */}
-      <div className="absolute inset-0 bg-gray-900/5 dark:bg-gray-900/15 backdrop-blur-sm"></div>
+    <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' strokeWidth='2' stroke='%236366f1'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
+          }}
+        />
+      </div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Header */}
@@ -103,22 +110,25 @@ const SwipeCards = () => {
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-sm text-gray-900 dark:text-white px-6 py-3 rounded-full text-sm font-medium mb-6 border border-gray-800/30 dark:border-gray-200/30"
+            className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-6 py-3 rounded-full text-sm font-medium mb-6"
           >
             <span className="text-lg">🎯</span>
             Interactive Journey
           </motion.div>
 
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6 drop-shadow-lg">
-            My <span className="text-gray-900 dark:text-white drop-shadow-lg">Journey</span>
+          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+            My{" "}
+            <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
+              Journey
+            </span>
           </h2>
 
-          <p className="text-xl text-gray-800 dark:text-gray-100 max-w-3xl mx-auto mb-8 leading-relaxed drop-shadow-md">
+          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
             Swipe through the key moments and experiences that shaped my path as a developer, community builder, and
             future Google Student Ambassador
           </p>
 
-          <div className="w-32 h-1 bg-gray-800/50 dark:bg-gray-200/50 mx-auto rounded-full"></div>
+          <div className="w-32 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 mx-auto rounded-full"></div>
         </motion.div>
 
         <div className="flex flex-col xl:flex-row items-start justify-center gap-12 max-w-7xl mx-auto">
@@ -134,17 +144,15 @@ const SwipeCards = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <div className="bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-800/30 dark:border-gray-200/30 text-center max-w-sm">
+                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-gray-700/30 text-center max-w-sm">
                       <div className="text-6xl mb-4">🎉</div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 drop-shadow-md">
-                        Journey Complete!
-                      </h3>
-                      <p className="text-gray-800 dark:text-gray-100 mb-6 leading-relaxed drop-shadow-sm">
-                        You&apos;ve explored my entire journey. Ready to build something amazing together?
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Journey Complete!</h3>
+                      <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                        You've explored my entire journey. Ready to build something amazing together?
                       </p>
                       <button
                         onClick={resetCards}
-                        className="inline-flex items-center gap-2 bg-gray-900/20 dark:bg-gray-100/20 hover:bg-gray-900/30 dark:hover:bg-gray-100/30 text-gray-900 dark:text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:scale-105 backdrop-blur-sm border border-gray-800/30 dark:border-gray-200/30"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
                       >
                         <RotateCcw className="w-4 h-4" />
                         Restart Journey
@@ -174,22 +182,8 @@ const SwipeCards = () => {
                   transition={{ delay: 1 }}
                   className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 text-center"
                 >
-                  <div className="bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg border border-gray-800/30 dark:border-gray-200/30">
-                    <div className="flex items-center gap-4 text-sm text-gray-900 dark:text-white">
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-red-500/20 backdrop-blur-sm flex items-center justify-center border border-red-400/30">
-                          <X className="w-4 h-4 text-red-600 dark:text-red-400" />
-                        </div>
-                        <span>Swipe left to skip</span>
-                      </div>
-                      <div className="w-px h-6 bg-gray-800/30 dark:bg-gray-200/30"></div>
-                      <div className="flex items-center gap-2">
-                        <div className="w-8 h-8 rounded-full bg-green-500/20 backdrop-blur-sm flex items-center justify-center border border-green-400/30">
-                          <Heart className="w-4 h-4 text-green-600 dark:text-green-400" />
-                        </div>
-                        <span>Swipe right to like</span>
-                      </div>
-                    </div>
+                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg border border-white/20 dark:border-gray-700/30">
+                 <p>Swipe right</p>
                   </div>
                 </motion.div>
               )}
@@ -204,29 +198,29 @@ const SwipeCards = () => {
                 key={cards[cards.length - 1]?.id}
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-gray-800/30 dark:border-gray-200/30"
+                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-gray-700/30"
               >
                 <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-gray-800/50 dark:bg-gray-200/50"></div>
-                  <span className="text-sm font-semibold text-gray-800 dark:text-gray-100 uppercase tracking-wider">
+                  <div className="w-3 h-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></div>
+                  <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
                     {cards[cards.length - 1]?.category}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3 drop-shadow-md">
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   {cards[cards.length - 1]?.title}
                 </h3>
 
-                <p className="text-gray-800 dark:text-gray-100 mb-6 leading-relaxed drop-shadow-sm">
+                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                   {cards[cards.length - 1]?.details}
                 </p>
 
-                <div className="bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm rounded-2xl p-4 border border-gray-800/20 dark:border-gray-200/20">
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-4 border border-indigo-200/30 dark:border-indigo-700/30">
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-lg">🏆</span>
-                    <span className="text-sm font-semibold text-gray-800 dark:text-gray-100">Achievement</span>
+                    <span className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">Achievement</span>
                   </div>
-                  <p className="text-gray-900 dark:text-white font-medium drop-shadow-sm">
+                  <p className="text-indigo-800 dark:text-indigo-200 font-medium">
                     {cards[cards.length - 1]?.achievement}
                   </p>
                 </div>
@@ -239,18 +233,18 @@ const SwipeCards = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-gray-900/15 dark:bg-gray-100/15 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-gray-800/30 dark:border-gray-200/30"
+              className="bg-gradient-to-br from-white/60 to-white/40 dark:from-gray-800/60 dark:to-gray-800/40 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30"
             >
               <div className="flex items-center justify-between mb-4">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white drop-shadow-md">Journey Progress</h4>
-                <span className="text-sm text-gray-700 dark:text-gray-200">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Journey Progress</h4>
+                <span className="text-sm text-gray-500 dark:text-gray-400">
                   {cardData.length - cards.length} / {cardData.length}
                 </span>
               </div>
 
-              <div className="w-full bg-gray-800/20 dark:bg-gray-200/20 rounded-full h-3 mb-4 overflow-hidden">
+              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-4 overflow-hidden">
                 <motion.div
-                  className="bg-gray-800/60 dark:bg-gray-200/60 h-3 rounded-full"
+                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 h-3 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${((cardData.length - cards.length) / cardData.length) * 100}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
@@ -258,15 +252,15 @@ const SwipeCards = () => {
               </div>
 
               <div className="grid grid-cols-2 gap-4 text-center">
-                <div className="bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm rounded-xl p-3 border border-gray-800/20 dark:border-gray-200/20">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-md">
+                <div className="bg-white/50 dark:bg-gray-700/50 rounded-xl p-3">
+                  <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
                     {cardData.length - cards.length}
                   </div>
-                  <div className="text-xs text-gray-700 dark:text-gray-200">Explored</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">Explored</div>
                 </div>
-                <div className="bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm rounded-xl p-3 border border-gray-800/20 dark:border-gray-200/20">
-                  <div className="text-2xl font-bold text-gray-900 dark:text-white drop-shadow-md">{cards.length}</div>
-                  <div className="text-xs text-gray-700 dark:text-gray-200">Remaining</div>
+                <div className="bg-white/50 dark:bg-gray-700/50 rounded-xl p-3">
+                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{cards.length}</div>
+                  <div className="text-xs text-gray-600 dark:text-gray-400">Remaining</div>
                 </div>
               </div>
             </motion.div>
@@ -277,15 +271,13 @@ const SwipeCards = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm rounded-3xl p-6 border border-gray-800/20 dark:border-gray-200/20"
+              className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 backdrop-blur-sm rounded-3xl p-6 border border-indigo-200/30 dark:border-indigo-700/30"
             >
               <div className="flex items-center gap-3 mb-4">
                 <span className="text-2xl">💡</span>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white drop-shadow-md">
-                  Why This Interactive Experience?
-                </h4>
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Why This Interactive Experience?</h4>
               </div>
-              <p className="text-gray-800 dark:text-gray-100 leading-relaxed drop-shadow-sm">
+              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
                 As a Google Student Ambassador, I believe in making technology accessible and engaging. This interactive
                 journey reflects my approach to education - hands-on, intuitive, and memorable.
               </p>
@@ -297,14 +289,14 @@ const SwipeCards = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className={`p-4 rounded-2xl text-center backdrop-blur-sm border ${
+                className={`p-4 rounded-2xl text-center ${
                   lastDirection === "right"
-                    ? "bg-green-500/20 text-green-800 dark:text-green-200 border-green-400/30"
-                    : "bg-red-500/20 text-red-800 dark:text-red-200 border-red-400/30"
+                    ? "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
+                    : "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
                 }`}
               >
                 <div className="text-2xl mb-2">{lastDirection === "right" ? "💚" : "👋"}</div>
-                <p className="font-medium drop-shadow-sm">
+                <p className="font-medium">
                   {lastDirection === "right" ? "Thanks for the interest!" : "No worries, keep exploring!"}
                 </p>
               </motion.div>
@@ -335,7 +327,7 @@ const Card = ({
   const rotate = useTransform(x, [-200, 200], [-25, 25])
   const opacity = useTransform(x, [-200, -100, 0, 100, 200], [0, 1, 1, 1, 0])
 
-  const handleDragEnd = (event: unknown, info: PanInfo) => {
+  const handleDragEnd = (event: any, info: PanInfo) => {
     const threshold = 100
     const velocity = info.velocity.x
     const movement = info.offset.x
@@ -368,10 +360,9 @@ const Card = ({
       onDragEnd={handleDragEnd}
       whileDrag={{ scale: 1.05 }}
     >
-      <div className="w-80 h-[500px] bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-xl rounded-3xl shadow-2xl overflow-hidden border border-gray-800/30 dark:border-gray-200/30">
+      <div className="w-80 h-[500px] bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-700/30">
         {/* Image */}
         <div className="h-64 w-full overflow-hidden relative">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={card.url || "/placeholder.svg"}
             alt={card.title}
@@ -381,8 +372,8 @@ const Card = ({
           <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
 
           {/* Category Badge */}
-          <div className="absolute top-4 left-4 bg-gray-900/20 dark:bg-gray-100/20 backdrop-blur-sm rounded-full px-3 py-1 border border-gray-800/30 dark:border-gray-200/30">
-            <span className="text-xs font-semibold text-gray-900 dark:text-white uppercase tracking-wider">
+          <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-3 py-1">
+            <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
               {card.category}
             </span>
           </div>
@@ -390,28 +381,24 @@ const Card = ({
 
         {/* Content */}
         <div className="p-6 h-[236px] flex flex-col">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2 drop-shadow-md">
-            {card.title}
-          </h3>
+          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">{card.title}</h3>
 
-          <p className="text-gray-800 dark:text-gray-100 text-sm leading-relaxed mb-4 flex-1 line-clamp-4 drop-shadow-sm">
+          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 flex-1 line-clamp-4">
             {card.description}
           </p>
 
-          <div className="bg-gray-900/10 dark:bg-gray-100/10 backdrop-blur-sm rounded-xl p-3 border border-gray-800/20 dark:border-gray-200/20">
+          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-3 border border-indigo-200/30 dark:border-indigo-700/30">
             <div className="flex items-center gap-2 mb-1">
               <span className="text-sm">🎯</span>
-              <span className="text-xs font-semibold text-gray-800 dark:text-gray-100">Impact</span>
+              <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-300">Impact</span>
             </div>
-            <p className="text-xs text-gray-900 dark:text-white font-medium line-clamp-2 drop-shadow-sm">
-              {card.achievement}
-            </p>
+            <p className="text-xs text-indigo-800 dark:text-indigo-200 font-medium line-clamp-2">{card.achievement}</p>
           </div>
         </div>
 
         {/* Swipe Indicators */}
         <motion.div
-          className="absolute left-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-red-500/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 border border-red-400/50"
+          className="absolute left-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center opacity-0"
           style={{
             opacity: useTransform(x, [-100, -50], [1, 0]),
           }}
@@ -420,7 +407,7 @@ const Card = ({
         </motion.div>
 
         <motion.div
-          className="absolute right-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-green-500/80 backdrop-blur-sm rounded-full flex items-center justify-center opacity-0 border border-green-400/50"
+          className="absolute right-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center opacity-0"
           style={{
             opacity: useTransform(x, [50, 100], [1, 0]),
           }}
@@ -434,7 +421,7 @@ const Card = ({
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
             transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 backdrop-blur-sm text-white text-xs px-3 py-1 rounded-full border border-white/20"
+            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white text-xs px-3 py-1 rounded-full"
           >
             Drag me! 👆
           </motion.div>
