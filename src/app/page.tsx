@@ -16,15 +16,16 @@ import {
   Brain,
   Laptop,
   Sparkles,
+  Camera,
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import FloatingAvatar from "@/components/floating-avatar"
 import FloatingIcons from "@/components/floating-icons"
 import LoadingScreen from "@/components/loading-screen"
-
-import DeveloperSkitsShowcase from "@/components/developer-skits-showcase"
 import SwipeCards from "@/components/swipe-cards"
+import { Example } from "@/components/footer"
+import GoogleAmbassadorSection from "@/components/cta"
 
 export default function PitchWebsite() {
   const [darkMode, setDarkMode] = useState(false)
@@ -222,45 +223,7 @@ export default function PitchWebsite() {
       <SwipeCards />
 
       {/* Why GDSA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-red-500 via-yellow-500 to-green-500">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center text-white"
-          >
-            <h2 className="text-5xl font-bold mb-8">Why Google Student Ambassador?</h2>
-            <div className="max-w-4xl mx-auto">
-              <p className="text-xl leading-relaxed mb-8">
-                Google&apos;s mission to organize the world&apos;s information and make it universally accessible
-                resonates deeply with my passion for democratizing technology education. As a GDSA, I want to bridge the
-                gap between Google&apos;s cutting-edge innovations and student communities, fostering the next
-                generation of tech leaders.
-              </p>
-              <div className="grid md:grid-cols-3 gap-8 mt-12">
-                {[
-                  { number: "500+", label: "Students Mentored" },
-                  { number: "15+", label: "Tech Events Organized" },
-                  { number: "3", label: "Years of Community Building" },
-                ].map((stat, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.2 }}
-                    className="text-center"
-                  >
-                    <div className="text-4xl font-bold mb-2">{stat.number}</div>
-                    <div className="text-lg opacity-90">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+     <div><GoogleAmbassadorSection /></div>
 
       {/* Projects Section */}
       <section className="py-20 bg-gray-50 dark:bg-gray-800">
@@ -279,23 +242,37 @@ export default function PitchWebsite() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
-              {
-                title: "EduConnect Platform",
-                description: "A comprehensive learning management system connecting students and educators globally.",
-                tech: ["React", "Node.js", "MongoDB"],
-                color: "from-blue-600 to-blue-800",
-              },
-              {
-                title: "AI Study Assistant",
-                description: "Machine learning-powered tool that helps students optimize their study schedules.",
-                tech: ["Python", "TensorFlow", "Flask"],
+{
+  title: "PathPILOT",
+  description: `It is an AI-powered platform with a personalized chatbot, tailored interview prep, career
+counselor section, and a resume analyzer that identifies skill gaps, suggests optimal career roadmaps, and highlights
+improvement areas. It delivers customized guidance helping users confidently plan and grow their careers with personalized support.`,
+  tech: ["Next.js", "Firebase", "Google Gemini API"],
+  color: "from-blue-600 to-blue-800",
+  image: "/pp..png",
+  imageAlt: "EduConnect Platform Dashboard Screenshot",
+  github: "https://github.com/Pragya79645/careerpathnavigator.git",
+  demo: "https://careerpathnavigator-fufd.vercel.app/"
+},
+{
+  title: "Syncora",
+  description: `Syncora is a structured collaboration platform that bridges this gap by streamlining communication, automating insights, and enhancing productivity. It combines real-time messaging, AI-powered assistance, and smart role-based interactions to create a seamless workplace experience.`,
+  tech: ["Next.js", "Supabase"],
                 color: "from-red-500 to-red-700",
+                image: "/syn.jpg",
+                imageAlt: "AI Study Assistant Interface Screenshot",
+                github: "https://github.com/Pragya79645/syncora.git",
+                
               },
               {
-                title: "Community Hub",
-                description: "Social platform for tech enthusiasts to share knowledge and collaborate on projects.",
-                tech: ["Next.js", "Supabase", "Tailwind"],
+                title: "InfoScope",
+                description: "A personalized content platform built with Next.js that delivers trending news and movie recommendations using TMDB and News APIs, allowing users to customize their profiles and filter content based on preferences.",
+                tech: ["Next.js", "Google Gemini API"],
                 color: "from-green-500 to-green-700",
+                image: "/info.png",
+                imageAlt: "Community Hub Platform Screenshot",
+                github: "https://github.com/Pragya79645/dashboard.git",
+                demo: "https://dashboard-nine-delta-10.vercel.app/"
               },
             ].map((project, index) => (
               <motion.div
@@ -309,16 +286,73 @@ export default function PitchWebsite() {
               >
                 <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
                   <div className={`h-2 bg-gradient-to-r ${project.color}`}></div>
+                  
+                  {/* Project Image */}
+                  <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                    {project.image ? (
+                      <img
+                        src={project.image}
+                        alt={project.imageAlt}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={(e) => {
+                          // Fallback if image fails to load
+                          const img = e.target as HTMLImageElement;
+                          img.style.display = 'none';
+                          const nextElem = img.nextElementSibling as HTMLElement | null;
+                          if (nextElem) nextElem.style.display = 'flex';
+                        }}
+                      />
+                    ) : null}
+                    
+                    {/* Fallback placeholder */}
+                    <div className={`${project.image ? 'hidden' : 'flex'} w-full h-full items-center justify-center bg-gradient-to-br ${project.color}`}>
+                      <div className="text-center text-white">
+                        <Camera className="h-12 w-12 mx-auto mb-2 opacity-70" />
+                        <p className="text-sm font-medium">{project.title}</p>
+                      </div>
+                    </div>
+                    
+                    {/* Overlay on hover */}
+                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <div className="flex gap-2">
+                        {project.github && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Button variant="secondary" size="sm" className="opacity-90">
+                              <Github className="h-4 w-4 mr-1" />
+                              Code
+                            </Button>
+                          </a>
+                        )}
+                        {project.demo && (
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                            <Button variant="secondary" size="sm" className="opacity-90">
+                              <ExternalLink className="h-4 w-4 mr-1" />
+                              Demo
+                            </Button>
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
                   <CardContent className="p-6">
                     <div className="flex items-center justify-between mb-4">
                       <Code className="h-8 w-8 text-gray-600 dark:text-gray-300" />
                       <div className="flex gap-2">
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <Github className="h-4 w-4" />
-                        </Button>
-                        <Button variant="ghost" size="icon" className="h-8 w-8">
-                          <ExternalLink className="h-4 w-4" />
-                        </Button>
+                        {project.github && (
+                          <a href={project.github} target="_blank" rel="noopener noreferrer">
+                            <Button variant="ghost" size="icon" className="h-8 w-8">
+                              <Github className="h-4 w-4" />
+                            </Button>
+                          </a>
+                        )}
+                        {project.demo && (
+                          <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                            <Button variant="ghost" size="icon" className="h-8 w-8">
+                              <ExternalLink className="h-4 w-4" />
+                            </Button>
+                          </a>
+                        )}
                       </div>
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
@@ -389,50 +423,16 @@ export default function PitchWebsite() {
         </div>
       </section>
 
-      {/* Developer Skits Showcase */}
-      <DeveloperSkitsShowcase />
-
-      {/* Mission: Code Possible Skit */}
-
-
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 via-red-500 to-green-500">
-        <div className="container mx-auto px-4 text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-5xl font-bold text-white mb-8">Let&apos;s Build the Future with Google</h2>
-            <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
-              Ready to embark on this incredible journey together? Let&apos;s connect and make a difference in the world
-              of technology.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button
-                size="lg"
-                className="bg-white text-gray-900 hover:bg-gray-100 px-8 py-4 rounded-full text-lg font-semibold"
-              >
-                <Mail className="h-5 w-5 mr-2" />
-                Get In Touch
-              </Button>
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-2 border-white text-white hover:bg-white hover:text-gray-900 px-8 py-4 rounded-full text-lg font-semibold bg-transparent"
-              >
-                <Linkedin className="h-5 w-5 mr-2" />
-                Connect on LinkedIn
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+  <div><Example /></div>
 
       {/* Footer */}
-      <footer className="py-12 bg-gray-900 text-white">
+      <footer className="py-4 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }}>
-            <p className="text-gray-400 mb-4">Made with ❤️ and lots of ☕ by Pragya</p>
+          
             <p className="text-sm text-gray-500">
-              © 2024 Pragya&apos;s Pitch. Designed for Google Student Ambassador Application.
+              © 2025 Pragya&apos;s Pitch. Designed for Google Student Ambassador Application.
             </p>
           </motion.div>
         </div>

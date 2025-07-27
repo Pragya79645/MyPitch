@@ -17,103 +17,84 @@ type Card = {
 const cardData: Card[] = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Innovation in Tech",
-    category: "Leadership",
-    description: "Leading tech innovation initiatives in student communities",
+    url: "/tank.jpg",
+    title: "Leading My Team to Build a Prototype",
+    category: "Leadership . Solve",
+    description: "Guiding Vision Into Execution",
     details:
-      "Spearheaded multiple technology innovation workshops, introducing students to cutting-edge tools like AI/ML, cloud computing, and modern web development frameworks. Organized hackathons that resulted in 15+ innovative projects addressing real-world problems.",
-    achievement: "500+ students impacted across 10 universities",
+      "As team lead, mentored and guided peers to build a solution prototype, ensuring design thinking and task delegation.",
+    achievement: "Successfully delivered a working prototype through cross-functional coordination, reflecting leadership potential.",
   },
-  {
-    id: 2,
-    url: "https://images.unsplash.com/photo-1512374382149-233c42b6a83b?q=80&w=2235&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Community Building",
-    category: "Networking",
-    description: "Fostering connections and collaboration in tech communities",
-    details:
-      "Built and managed vibrant tech communities where students collaborate, learn, and grow together. Created mentorship programs connecting senior developers with beginners, established study groups, and organized regular tech talks featuring industry experts.",
-    achievement: "Founded 3 active tech communities with 1000+ members",
-  },
-  {
-    id: 3,
-    url: "https://images.unsplash.com/photo-1539185441755-769473a23570?q=80&w=2342&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Learning & Growth",
-    category: "Education",
-    description: "Continuous learning and skill development in technology",
-    details:
-      "Developed comprehensive learning pathways for students transitioning into tech. Created interactive workshops covering everything from basic programming to advanced topics like machine learning and cloud architecture. Mentored 100+ students in their coding journey.",
-    achievement: "95% of mentees secured tech internships or jobs",
-  },
+
   {
     id: 4,
-    url: "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=2224&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Problem Solving",
+    url: "port.jpg",
+    title: "2nd Place at Debug Quest & 1st Place Portfolio Contest",
     category: "Development",
-    description: "Tackling complex challenges with creative solutions",
+    description: "Attention to Detail + Creative Storytelling",
     details:
-      "Led development teams in creating innovative solutions for social impact. Built applications addressing education accessibility, environmental sustainability, and community health. Specialized in full-stack development with modern frameworks and cloud technologies.",
-    achievement: "Developed 8 production-ready applications",
+      "Secured second place in a dual contest testing debugging accuracy and portfolio presentation, hosted by GDG RCCIIT.",
+    achievement: "Demonstrated precision in debugging and creativity in showcasing personal projects effectively.",
   },
   {
     id: 5,
-    url: "https://images.unsplash.com/photo-1516478177764-9fe5bd7e9717?q=80&w=2340&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Digital Transformation",
-    category: "Strategy",
-    description: "Leading change through technology and innovation",
+    url: "softw.jpg",
+    title: "Website Development Program",
+    category: "Web . Build",
+    description: "Full-Stack Skill Building",
     details:
-      "Consulted with educational institutions on digital transformation strategies. Implemented modern learning management systems, automated administrative processes, and introduced collaborative tools that improved efficiency by 40%. Trained faculty on emerging technologies.",
-    achievement: "Transformed digital infrastructure for 5 institutions",
+      "Participated in a website-building contest as part of a software development program, focusing on frontend design, backend logic, and UI/UX principles.",
+    achievement: "Developed a fully functional web application, honing technical and collaboration skills.",
   },
   {
     id: 6,
-    url: "https://images.unsplash.com/photo-1570464197285-9949814674a7?q=80&w=2273&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Future Vision",
-    category: "Innovation",
-    description: "Envisioning the future of technology and education",
+    url: "bin.jpg",
+    title: "2nd Place – Hackathon @ KGEC",
+    category: "Hack . 2nd",
+    description: "Innovating Under Pressure",
     details:
-      "Research and development in emerging technologies like AI, blockchain, and IoT for educational applications. Published papers on technology adoption in education, spoke at conferences about the future of learning, and prototyped next-generation educational tools.",
-    achievement: "3 research publications, 10+ conference talks",
+      "Secured 2nd place in a 24-hour hackathon hosted by Kalyani Government Engineering College, tackling real-world challenges with creative prototyping.",
+    achievement: "Recognized for effective teamwork, time management, and turning ideas into action.",
   },
   {
     id: 7,
-    url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2371&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Collaborative Leadership",
-    category: "Teamwork",
-    description: "Building and leading high-performing tech teams",
+    url: "gdg.jpg",
+    title: "GDG DevFest Kolkata",
+    category: "Learn . Network",
+    description: "Exploring the Larger Developer Ecosystem",
     details:
-      "Led cross-functional teams in developing innovative software solutions. Established agile development practices, implemented code review processes, and fostered a culture of continuous learning. Mentored junior developers and coordinated multiple concurrent projects.",
-    achievement: "Successfully delivered 12+ projects with zero critical bugs",
+      "Participated in GDG DevFest Kolkata, gaining insights from top-tier developers and understanding Google's broader developer ecosystem.",
+    achievement: "Built valuable connections and returned with practical inspiration to implement in student-led tech initiatives.",
   },
   {
     id: 8,
-    url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Data Analytics",
-    category: "Analysis",
-    description: "Transforming data into actionable insights",
+    url: "chain.jpg",
+    title: "Organizing Blockchain Day",
+    category: "Organize . Web3",
+    description: "Community Building in Web3",
     details:
-      "Developed comprehensive analytics dashboards for educational institutions. Implemented machine learning models for student performance prediction, created automated reporting systems, and provided data-driven recommendations that improved academic outcomes by 25%.",
-    achievement: "Analyzed data for 15,000+ students across multiple institutions",
+      "Played a core role in the organizing team for Blockchain Day, facilitating awareness and learning around decentralized technologies.",
+    achievement: "Helped streamline event coordination and session planning, contributing to a successful turnout and learning experience.",
   },
   {
     id: 9,
-    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Mobile Development",
-    category: "Technology",
-    description: "Creating mobile experiences that matter",
+    url: "hwh.jpg",
+    title: "Promoting Hello World Hacks",
+    category: "Outreach.Team",
+    description: "Tech Team Outreach & Engagement",
     details:
-      "Developed native and cross-platform mobile applications for educational purposes. Built apps that gamify learning, enable offline access to educational content, and facilitate peer-to-peer learning. Focused on accessibility and user experience design.",
-    achievement: "Created 5 mobile apps with 50,000+ combined downloads",
+      "As part of the Tech team, led the college-wide promotion campaign for Hello World Hacks, fostering collaboration between institutions.",
+    achievement: "Successfully engaged multiple colleges, boosting hackathon participation and enhancing community engagement.",
   },
   {
     id: 10,
-    url: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2369&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-    title: "Global Impact",
-    category: "Outreach",
-    description: "Making technology accessible worldwide",
+    url: "ign.jpg",
+    title: "Tech-Preneur Pitch Presentation",
+    category: "Tech . Pitch",
+    description: "Real-World Impact Through Innovation",
     details:
-      "Participated in international tech conferences and workshops. Collaborated with global student organizations to promote digital literacy. Developed open-source educational tools used by universities across different continents and contributed to global tech initiatives.",
-    achievement: "Reached students in 25+ countries through various initiatives",
+      "Presented a tech-driven entrepreneurial solution addressing a real-world issue, combining analytical problem-solving with public speaking and leadership.",
+    achievement: "Initiated a practical, scalable solution – demonstrating my readiness to lead tech communities and inspire innovation.",
   },
 ]
 
@@ -409,7 +390,7 @@ const Card = ({
           <img
             src={card.url || "/placeholder.svg"}
             alt={card.title}
-            className="h-full w-full object-cover"
+            className="h-full w-full object-contain"
             draggable={false}
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
@@ -440,14 +421,7 @@ const Card = ({
           }}
         >
           <X className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
-        </motion.div>
-
-        <motion.div
-          className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center opacity-0"
-          style={{
-            opacity: useTransform(x, [50, 100], [1, 0]),
-          }}
-        >
+        {/* Removed green heart swipe indicator */}
           <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
         </motion.div>
 
