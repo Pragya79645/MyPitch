@@ -56,21 +56,74 @@ export default function PitchWebsite() {
     <div className={`min-h-screen transition-colors duration-300 ${darkMode ? "dark bg-gray-900" : "bg-white"}`}>
       <FloatingIcons />
 
-      {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-md border-b border-gray-200 dark:border-gray-700">
-        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-          <motion.h1
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            className="text-2xl font-bold bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent"
-          >
-            Pragya&apos;s Pitch
-          </motion.h1>
+      {/* Modern Glassmorphic Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-50">
+        <nav
+          className="mx-auto mt-4 w-[95%] max-w-6xl rounded-2xl px-6 py-3 flex items-center justify-between shadow-xl border border-white/30 dark:border-gray-800/60 bg-white/60 dark:bg-gray-900/60 backdrop-blur-lg"
+          style={{
+            boxShadow: '0 8px 32px 0 rgba(31, 38, 135, 0.15)',
+            border: '1.5px solid rgba(255,255,255,0.18)',
+          }}
+        >
+          {/* Logo/Avatar */}
+          <div className="flex items-center gap-3">
+            <img
+              src="/avatar.jpg"
+              alt="Pragya Avatar"
+              className="h-10 w-10 rounded-full border-2 border-blue-500 shadow-md object-cover bg-white"
+              style={{ background: 'linear-gradient(135deg, #60a5fa 0%, #f87171 100%)' }}
+            />
+            <motion.span
+              initial={{ opacity: 0, x: -20 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent select-none"
+            >
+              Pragya&apos;s Pitch
+            </motion.span>
+          </div>
 
-          <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full">
-            {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
-          </Button>
-        </div>
+          {/* Nav Links */}
+          <ul className="hidden md:flex gap-8 items-center text-base font-medium relative">
+            {[
+              { label: '', href: '#home' },
+              { label: '', href: '#pitch' },
+              { label: '', href: '#projects' },
+              { label: '', href: '#vision' },
+              { label: '', href: '#contact' },
+            ].map((item, idx) => (
+              <li key={item.label} className="relative group">
+                <a
+                  href={item.href}
+                  className="px-2 py-1 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
+                >
+                  {item.label}
+                  <span className="block h-[2.5px] mt-1 rounded-full bg-gradient-to-r from-blue-600 via-red-500 to-green-500 scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Socials & Theme Toggle */}
+          <div className="flex items-center gap-2 md:gap-4">
+            <a href="https://github.com/Pragya79645" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+              <Github className="h-5 w-5 text-gray-700 dark:text-gray-200" />
+            </a>
+            <a href="https://www.linkedin.com/in/pragya-singh-71884b30b" target="_blank" rel="noopener noreferrer" className="hover:scale-110 transition-transform">
+              <Linkedin className="h-5 w-5 text-blue-700 dark:text-blue-400" />
+            </a>
+            <a
+              href="https://mail.google.com/mail/?view=cm&fs=1&to=pragya220898@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:scale-110 transition-transform"
+            >
+              <Mail className="h-5 w-5 text-pink-500 dark:text-pink-400" />
+            </a>
+            <Button variant="ghost" size="icon" onClick={() => setDarkMode(!darkMode)} className="rounded-full ml-2">
+              {darkMode ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </Button>
+          </div>
+        </nav>
       </header>
 
       {/* Hero Section with Floating Avatar */}
@@ -167,52 +220,63 @@ export default function PitchWebsite() {
       </section>
 
       {/* Who I Am Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
+      <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">Who I Am</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mb-8"></div>
+            <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight drop-shadow-lg">Who I Am</h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 mx-auto mb-8 rounded-full"></div>
+            <p className="text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto mb-2 font-medium">A glimpse into my personality and passions</p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
               {
-                icon: <Brain className="h-8 w-8" />,
+                icon: <Brain className="h-10 w-10" />, // larger icon
                 title: "Problem Solver",
                 description:
                   "I thrive on turning complex challenges into elegant solutions through code and creativity.",
+                color: "from-blue-400 via-blue-600 to-green-400",
               },
               {
-                icon: <Laptop className="h-8 w-8" />,
+                icon: <Laptop className="h-10 w-10" />,
                 title: "Tech Enthusiast",
                 description: "Always exploring the latest technologies and sharing knowledge with fellow developers.",
+                color: "from-pink-400 via-red-400 to-yellow-300",
               },
               {
-                icon: <Zap className="h-8 w-8" />,
+                icon: <Zap className="h-10 w-10" />,
                 title: "Community Builder",
                 description:
                   "Passionate about bringing people together and fostering collaborative learning environments.",
+                color: "from-green-400 via-blue-400 to-purple-400",
               },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.2 }}
-                whileHover={{ y: -10 }}
-                className="text-center"
+                transition={{ delay: index * 0.18 }}
+                whileHover={{ y: -12, scale: 1.04 }}
+                className="relative group"
               >
-                <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-blue-600 to-green-500 text-white rounded-full mb-6">
-                  {item.icon}
+                {/* Glassmorphic Card */}
+                <div
+                  className={
+                    `flex flex-col items-center justify-center p-10 rounded-3xl shadow-xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-lg border border-white/30 dark:border-gray-800/60 transition-all duration-300 hover:shadow-2xl hover:bg-white/80 dark:hover:bg-gray-900/80` +
+                    ` before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:opacity-0 group-hover:before:opacity-30 before:transition-opacity before:duration-300 before:pointer-events-none before:z-0`
+                  }
+                  style={{ zIndex: 1 }}
+                >
+                  <div className={`relative z-10 flex items-center justify-center w-20 h-20 mb-6 bg-gradient-to-br ${item.color} text-white rounded-full shadow-lg border-4 border-white dark:border-gray-900 group-hover:scale-105 transition-transform duration-300`}>{item.icon}</div>
+                  <h3 className="relative z-10 text-2xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight drop-shadow-sm">{item.title}</h3>
+                  <p className="relative z-10 text-gray-600 dark:text-gray-300 leading-relaxed text-center font-medium">{item.description}</p>
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">{item.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300 leading-relaxed">{item.description}</p>
               </motion.div>
             ))}
           </div>
