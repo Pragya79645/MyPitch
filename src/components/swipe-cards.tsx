@@ -3,6 +3,7 @@
 import { type Dispatch, type SetStateAction, useState } from "react"
 import { motion, useMotionValue, useTransform, type PanInfo } from "framer-motion"
 import { RotateCcw, Heart, X } from "lucide-react"
+import DottedButton from "./btn"
 
 type Card = {
   id: number
@@ -133,8 +134,8 @@ const SwipeCards = () => {
             viewport={{ once: true }}
             className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
           >
-            <span className="text-base sm:text-lg">🎯</span>
-            Interactive Journey
+          
+            <div><DottedButton /></div>
           </motion.div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">

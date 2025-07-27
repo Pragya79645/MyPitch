@@ -85,13 +85,13 @@ export default function PitchWebsite() {
           {/* Nav Links */}
           <ul className="hidden md:flex gap-8 items-center text-base font-medium relative">
             {[
-              { label: '', href: '#home' },
-              { label: '', href: '#pitch' },
-              { label: '', href: '#projects' },
-              { label: '', href: '#vision' },
-              { label: '', href: '#contact' },
+              { label: '', href: '#' },
+              { label: '', href: '#' },
+              { label: '', href: '#' },
+              { label: '', href: '#' },
+              { label: '', href: '#' },
             ].map((item, idx) => (
-              <li key={item.label} className="relative group">
+              <li key={item.label || idx} className="relative group">
                 <a
                   href={item.href}
                   className="px-2 py-1 text-gray-700 dark:text-gray-200 hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200"
@@ -220,8 +220,11 @@ export default function PitchWebsite() {
       </section>
 
       {/* Who I Am Section */}
-      <section className="py-24 bg-gradient-to-br from-white via-blue-50 to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
-        <div className="container mx-auto px-4">
+      <section className="relative py-28 overflow-hidden bg-gradient-to-br from-white via-blue-50 to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900">
+        {/* Parallax/animated background shapes */}
+        <div className="pointer-events-none absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-400/30 via-green-300/20 to-pink-400/20 blur-3xl animate-pulse-slow" />
+        <div className="pointer-events-none absolute -bottom-40 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-pink-400/20 via-blue-400/20 to-green-400/20 blur-3xl animate-pulse-slow" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -229,51 +232,54 @@ export default function PitchWebsite() {
             className="text-center mb-20"
           >
             <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-4 tracking-tight drop-shadow-lg">Who I Am</h2>
-            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 mx-auto mb-8 rounded-full"></div>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 mx-auto mb-8 rounded-full animate-gradient-x" />
             <p className="text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto mb-2 font-medium">A glimpse into my personality and passions</p>
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
               {
-                icon: <Brain className="h-10 w-10" />, // larger icon
+                icon: <Brain className="h-10 w-10 animate-float" />, // floating icon
                 title: "Problem Solver",
                 description:
                   "I thrive on turning complex challenges into elegant solutions through code and creativity.",
                 color: "from-blue-400 via-blue-600 to-green-400",
+                border: "border-blue-400/60",
               },
               {
-                icon: <Laptop className="h-10 w-10" />,
+                icon: <Laptop className="h-10 w-10 animate-float-delay" />, // floating icon with delay
                 title: "Tech Enthusiast",
                 description: "Always exploring the latest technologies and sharing knowledge with fellow developers.",
                 color: "from-pink-400 via-red-400 to-yellow-300",
+                border: "border-pink-400/60",
               },
               {
-                icon: <Zap className="h-10 w-10" />,
+                icon: <Zap className="h-10 w-10 animate-float" />,
                 title: "Community Builder",
                 description:
                   "Passionate about bringing people together and fostering collaborative learning environments.",
                 color: "from-green-400 via-blue-400 to-purple-400",
+                border: "border-green-400/60",
               },
             ].map((item, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 40 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.85, y: 40 }}
+                whileInView={{ opacity: 1, scale: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: index * 0.18 }}
-                whileHover={{ y: -12, scale: 1.04 }}
+                transition={{ delay: index * 0.18, type: 'spring', stiffness: 120, damping: 14 }}
+                whileHover={{ y: -16, scale: 1.06, boxShadow: "0 8px 32px 0 rgba(31,38,135,0.18)" }}
                 className="relative group"
               >
-                {/* Glassmorphic Card */}
+                {/* Animated Gradient Border Card */}
                 <div
                   className={
-                    `flex flex-col items-center justify-center p-10 rounded-3xl shadow-xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-lg border border-white/30 dark:border-gray-800/60 transition-all duration-300 hover:shadow-2xl hover:bg-white/80 dark:hover:bg-gray-900/80` +
-                    ` before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:opacity-0 group-hover:before:opacity-30 before:transition-opacity before:duration-300 before:pointer-events-none before:z-0`
+                    `flex flex-col items-center justify-center p-10 rounded-3xl shadow-xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-lg border-2 ${item.border} transition-all duration-300 hover:shadow-2xl hover:bg-white/80 dark:hover:bg-gray-900/80` +
+                    ` before:content-[''] before:absolute before:inset-0 before:rounded-3xl before:bg-gradient-to-br before:opacity-0 group-hover:before:opacity-40 before:transition-opacity before:duration-300 before:pointer-events-none before:z-0`
                   }
                   style={{ zIndex: 1 }}
                 >
-                  <div className={`relative z-10 flex items-center justify-center w-20 h-20 mb-6 bg-gradient-to-br ${item.color} text-white rounded-full shadow-lg border-4 border-white dark:border-gray-900 group-hover:scale-105 transition-transform duration-300`}>{item.icon}</div>
+                  <div className={`relative z-10 flex items-center justify-center w-20 h-20 mb-6 bg-gradient-to-br ${item.color} text-white rounded-full shadow-lg border-4 border-white dark:border-gray-900 group-hover:scale-110 transition-transform duration-300`}>{item.icon}</div>
                   <h3 className="relative z-10 text-2xl font-bold text-gray-900 dark:text-white mb-3 tracking-tight drop-shadow-sm">{item.title}</h3>
                   <p className="relative z-10 text-gray-600 dark:text-gray-300 leading-relaxed text-center font-medium">{item.description}</p>
                 </div>
@@ -281,6 +287,27 @@ export default function PitchWebsite() {
             ))}
           </div>
         </div>
+
+        {/* Custom keyframes for floating and gradient animation */}
+        <style jsx global>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+          }
+          .animate-float { animation: float 3.2s ease-in-out infinite; }
+          .animate-float-delay { animation: float 3.2s ease-in-out infinite; animation-delay: 1.2s; }
+          @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 4s ease-in-out infinite;
+          }
+          .animate-pulse-slow {
+            animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }
+        `}</style>
       </section>
 
       {/* Swipe Cards Section */}
@@ -290,21 +317,25 @@ export default function PitchWebsite() {
      <div><GoogleAmbassadorSection /></div>
 
       {/* Projects Section */}
-      <section className="py-20 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
+      <section className="py-24 bg-gradient-to-br from-blue-50 via-white to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+        {/* Glassmorphic floating shapes for extra depth */}
+        <div className="pointer-events-none absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-400/30 via-green-300/20 to-pink-400/20 blur-3xl animate-pulse-slow z-0" />
+        <div className="pointer-events-none absolute -bottom-40 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-pink-400/20 via-blue-400/20 to-green-400/20 blur-3xl animate-pulse-slow z-0" />
+        <div className="container mx-auto px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="text-center mb-16"
           >
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">My Projects</h2>
-            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+            <h2 className="text-5xl font-extrabold text-gray-900 dark:text-white mb-6 tracking-tight drop-shadow-lg">My Projects</h2>
+            <div className="w-32 h-1 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 mx-auto mb-8 rounded-full animate-gradient-x" />
+            <p className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium">
               Here are some projects that showcase my technical skills and passion for innovation
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
             {[
 {
   title: "PathPILOT",
@@ -345,21 +376,21 @@ improvement areas. It delivers customized guidance helping users confidently pla
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.2 }}
-                whileHover={{ y: -10, scale: 1.02 }}
+                whileHover={{ y: -16, scale: 1.04, boxShadow: "0 8px 32px 0 rgba(31,38,135,0.18)" }}
                 className="group"
               >
-                <Card className="h-full overflow-hidden border-0 shadow-lg hover:shadow-2xl transition-all duration-300">
-                  <div className={`h-2 bg-gradient-to-r ${project.color}`}></div>
-                  
-                  {/* Project Image */}
-                  <div className="relative h-48 overflow-hidden bg-gray-100 dark:bg-gray-700">
+                <div className="relative h-full flex flex-col rounded-3xl shadow-xl bg-white/60 dark:bg-gray-900/60 backdrop-blur-lg border-2 border-white/40 dark:border-gray-800/60 overflow-hidden transition-all duration-300 hover:shadow-2xl hover:bg-white/80 dark:hover:bg-gray-900/80">
+                  {/* Animated gradient border top */}
+                  <div className={`h-2 bg-gradient-to-r ${project.color} animate-gradient-x`} />
+
+                  {/* Project Image with glass overlay */}
+                  <div className="relative h-52 overflow-hidden flex items-center justify-center bg-gray-100 dark:bg-gray-700">
                     {project.image ? (
                       <img
                         src={project.image}
                         alt={project.imageAlt}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110 group-hover:blur-[1.5px]"
                         onError={(e) => {
-                          // Fallback if image fails to load
                           const img = e.target as HTMLImageElement;
                           img.style.display = 'none';
                           const nextElem = img.nextElementSibling as HTMLElement | null;
@@ -367,7 +398,6 @@ improvement areas. It delivers customized guidance helping users confidently pla
                         }}
                       />
                     ) : null}
-                    
                     {/* Fallback placeholder */}
                     <div className={`${project.image ? 'hidden' : 'flex'} w-full h-full items-center justify-center bg-gradient-to-br ${project.color}`}>
                       <div className="text-center text-white">
@@ -375,13 +405,14 @@ improvement areas. It delivers customized guidance helping users confidently pla
                         <p className="text-sm font-medium">{project.title}</p>
                       </div>
                     </div>
-                    
+                    {/* Glass overlay for shine */}
+                    <div className="absolute inset-0 bg-white/20 dark:bg-gray-900/20 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
                     {/* Overlay on hover */}
-                    <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10">
                       <div className="flex gap-2">
                         {project.github && (
                           <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Button variant="secondary" size="sm" className="opacity-90">
+                            <Button variant="secondary" size="sm" className="opacity-90 shadow-md">
                               <Github className="h-4 w-4 mr-1" />
                               Code
                             </Button>
@@ -389,7 +420,7 @@ improvement areas. It delivers customized guidance helping users confidently pla
                         )}
                         {project.demo && (
                           <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                            <Button variant="secondary" size="sm" className="opacity-90">
+                            <Button variant="secondary" size="sm" className="opacity-90 shadow-md">
                               <ExternalLink className="h-4 w-4 mr-1" />
                               Demo
                             </Button>
@@ -399,7 +430,7 @@ improvement areas. It delivers customized guidance helping users confidently pla
                     </div>
                   </div>
 
-                  <CardContent className="p-6">
+                  <CardContent className="flex-1 flex flex-col p-7">
                     <div className="flex items-center justify-between mb-4">
                       <Code className="h-8 w-8 text-gray-600 dark:text-gray-300" />
                       <div className="flex gap-2">
@@ -419,37 +450,56 @@ improvement areas. It delivers customized guidance helping users confidently pla
                         )}
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3">{project.title}</h3>
-                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{project.description}</p>
-                    <div className="flex flex-wrap gap-2">
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2 tracking-tight drop-shadow-sm">{project.title}</h3>
+                    <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed font-medium">{project.description}</p>
+                    <div className="flex flex-wrap gap-2 mt-auto">
                       {project.tech.map((tech, techIndex) => (
                         <span
                           key={techIndex}
-                          className="px-3 py-1 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-full text-sm"
+                          className="px-3 py-1 bg-gradient-to-r from-blue-100 via-green-100 to-pink-100 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-gray-700 dark:text-gray-300 rounded-full text-sm font-semibold shadow-sm border border-white/40 dark:border-gray-800/60"
                         >
                           {tech}
                         </span>
                       ))}
                     </div>
                   </CardContent>
-                </Card>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
+        {/* Custom keyframes for gradient and glassmorphic animation */}
+        <style jsx global>{`
+          @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 4s ease-in-out infinite;
+          }
+        `}</style>
       </section>
 
       {/* Vision Section */}
-      <section className="py-20 bg-white dark:bg-gray-900">
-        <div className="container mx-auto px-4">
+      <section className="relative py-22 overflow-hidden bg-gradient-to-br from-white via-blue-50 to-green-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 font-sans" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>
+        {/* Glassmorphic floating shapes for extra depth */}
+        <div className="pointer-events-none absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full bg-gradient-to-br from-blue-400/30 via-green-300/20 to-pink-400/20 blur-3xl animate-pulse-slow z-0" />
+        <div className="pointer-events-none absolute -bottom-40 right-0 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-pink-400/20 via-blue-400/20 to-green-400/20 blur-3xl animate-pulse-slow z-0" />
+        {/* Sparkle effect */}
+        <div className="pointer-events-none absolute left-1/2 top-1/3 -translate-x-1/2 z-10">
+          <span className="block w-32 h-32 bg-gradient-to-tr from-yellow-300 via-pink-400 to-blue-400 opacity-30 rounded-full blur-2xl animate-sparkle" />
+        </div>
+        <div className="container mx-auto px-4 relative z-20">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-16"
+            className="text-center mb-20"
           >
-            <h2 className="text-5xl font-bold text-gray-900 dark:text-white mb-6">My Vision</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-green-500 mx-auto mb-8"></div>
+            <h2 className="text-4xl md:text-5xl font-bold dark:text-white mb-4 tracking-tight drop-shadow-2xl bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent animate-gradient-x font-sans" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>My Vision</h2>
+            <div className="w-40 h-1 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 mx-auto mb-8 rounded-full animate-gradient-x shadow-lg" />
+            <p className="text-base md:text-lg text-gray-500 dark:text-gray-300 max-w-2xl mx-auto mb-2 font-normal italic font-sans" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>A glimpse into my mission and dreams</p>
           </motion.div>
 
           <div className="max-w-4xl mx-auto">
@@ -457,12 +507,16 @@ improvement areas. It delivers customized guidance helping users confidently pla
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
-              className="text-center mb-12"
+              className="flex flex-col items-center justify-center mb-14"
             >
               <div className="relative inline-block">
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 rounded-full blur-lg opacity-30"></div>
-                <div className="relative bg-white dark:bg-gray-800 p-8 rounded-full">
-                  <Lightbulb className="h-16 w-16 text-yellow-500 mx-auto" />
+                {/* Animated gradient ring */}
+                <div className="absolute inset-0 rounded-full bg-gradient-to-r from-blue-600 via-red-500 to-green-500 blur-2xl opacity-50 animate-gradient-x" style={{ filter: 'blur(36px)' }} />
+                {/* Glassmorphic card with floating lightbulb and sparkles */}
+                <div className="relative bg-white/80 dark:bg-gray-800/80 p-12 rounded-full shadow-2xl border-4 border-white/40 dark:border-gray-900/40 backdrop-blur-2xl flex items-center justify-center animate-float" style={{ minWidth: 200, minHeight: 200 }}>
+                  <Lightbulb className="h-24 w-24 text-yellow-400 drop-shadow-2xl animate-pulse" />
+                  {/* Sparkle icon */}
+                  <span className="absolute -top-4 -right-4 w-8 h-8 bg-gradient-to-tr from-yellow-300 via-pink-400 to-blue-400 opacity-60 rounded-full blur-md animate-sparkle" />
                 </div>
               </div>
             </motion.div>
@@ -473,18 +527,42 @@ improvement areas. It delivers customized guidance helping users confidently pla
               viewport={{ once: true }}
               className="text-center"
             >
-              <p className="text-2xl text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                &quot;To create a world where every student has access to cutting-edge technology education and the
-                opportunity to build solutions that matter.&quot;
+              <p className="text-xl md:text-2xl font-semibold dark:text-white leading-relaxed mb-8 drop-shadow-xl italic bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent animate-gradient-x font-sans" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>
+                &quot;To create a world where every student has access to cutting-edge technology education and the opportunity to build solutions that matter.&quot;
               </p>
-              <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-                As a Google Student Ambassador, I envision organizing workshops that demystify AI and machine learning,
-                hosting hackathons that solve real-world problems, and building a community where innovation thrives.
-                Together, we can shape the future of technology, one student at a time.
+              <p className="text-base md:text-lg text-gray-700 dark:text-gray-200 leading-relaxed font-normal max-w-3xl mx-auto bg-white/70 dark:bg-gray-900/70 rounded-3xl px-8 py-6 shadow-2xl backdrop-blur-2xl border border-white/40 dark:border-gray-800/40 font-sans" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}>
+                As a <span className="font-semibold text-blue-600 dark:text-blue-400">Google Student Ambassador</span>, I envision organizing <span className="font-semibold text-green-600 dark:text-green-400">workshops</span> that demystify AI and machine learning, hosting <span className="font-semibold text-pink-600 dark:text-pink-400">hackathons</span> that solve real-world problems, and building a <span className="font-semibold text-yellow-600 dark:text-yellow-400">community</span> where innovation thrives.<br className="hidden md:block" />
+                <span className="block mt-4">Together, we can shape the future of technology, one student at a time.</span>
               </p>
             </motion.div>
           </div>
         </div>
+        {/* Custom keyframes for floating, gradient, and sparkle animation */}
+        <style jsx global>{`
+          @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-22px); }
+          }
+          .animate-float { animation: float 3.2s ease-in-out infinite; }
+          @keyframes gradient-x {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+          }
+          .animate-gradient-x {
+            background-size: 200% 200%;
+            animation: gradient-x 4s ease-in-out infinite;
+          }
+          @keyframes sparkle {
+            0%, 100% { opacity: 0.7; transform: scale(1) rotate(0deg); }
+            50% { opacity: 1; transform: scale(1.2) rotate(20deg); }
+          }
+          .animate-sparkle {
+            animation: sparkle 2.8s ease-in-out infinite;
+          }
+          .animate-pulse-slow {
+            animation: pulse 8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+          }
+        `}</style>
       </section>
 
       {/* CTA Section */}

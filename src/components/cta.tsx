@@ -1,5 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { Lightbulb, Sparkles, Heart, TrendingUp } from 'lucide-react';
 
 const GoogleAmbassadorSection = () => {
   return (
@@ -65,13 +66,16 @@ const GoogleAmbassadorSection = () => {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="relative"
             >
-              <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black leading-tight mb-6">
+              <h2 
+                className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-extrabold leading-tight mb-6 tracking-tight font-sans"
+                style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.03em' }}
+              >
                 <motion.span
                   initial={{ backgroundPosition: "0% 50%" }}
                   animate={{ backgroundPosition: "100% 50%" }}
                   transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
                   className="bg-gradient-to-r from-blue-600 via-red-500 to-green-600 bg-200% bg-clip-text text-transparent block"
-                  style={{ backgroundSize: "200% 200%" }}
+                  style={{ backgroundSize: "200% 200%", fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: 800, letterSpacing: '-0.03em' }}
                 >
                   Why Google
                 </motion.span>
@@ -80,7 +84,7 @@ const GoogleAmbassadorSection = () => {
                   animate={{ backgroundPosition: "0% 50%" }}
                   transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 2 }}
                   className="bg-gradient-to-r from-green-600 via-blue-600 to-yellow-500 bg-200% bg-clip-text text-transparent block"
-                  style={{ backgroundSize: "200% 200%" }}
+                  style={{ backgroundSize: "200% 200%", fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', fontWeight: 800, letterSpacing: '-0.03em' }}
                 >
                   Student Ambassador?
                 </motion.span>
@@ -130,7 +134,8 @@ const GoogleAmbassadorSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 1 }}
-                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-800 leading-tight mb-8 lg:mb-12"
+                className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-semibold text-gray-800 leading-tight mb-8 lg:mb-12 font-sans tracking-tight"
+                style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.01em' }}
               >
                 Because I don't just want to use tech —{' '}
                 <motion.span
@@ -147,7 +152,8 @@ const GoogleAmbassadorSection = () => {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8, delay: 1.2 }}
-                className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed space-y-6 lg:space-y-8 max-w-4xl mx-auto"
+                className="text-lg sm:text-xl lg:text-2xl text-gray-700 leading-relaxed space-y-6 lg:space-y-8 max-w-4xl mx-auto font-sans"
+                style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif' }}
               >
                 <motion.p
                   initial={{ opacity: 0, x: -30 }}
@@ -182,10 +188,10 @@ const GoogleAmbassadorSection = () => {
                 className="flex flex-wrap justify-center items-center gap-4 sm:gap-6 lg:gap-8 mt-12 lg:mt-16"
               >
                 {[
-                  { color: '#4285F4', name: 'blue', label: 'Innovation' },
-                  { color: '#EA4335', name: 'red', label: 'Passion' },
-                  { color: '#FBBC05', name: 'yellow', label: 'Growth' },
-                  { color: '#34A853', name: 'green', label: 'Impact' }
+                  { color: '#4285F4', name: 'blue', label: 'Innovation', icon: <Lightbulb className="w-7 h-7 lg:w-8 lg:h-8 text-white drop-shadow" /> },
+                  { color: '#EA4335', name: 'red', label: 'Passion', icon: <Heart className="w-7 h-7 lg:w-8 lg:h-8 text-white drop-shadow" /> },
+                  { color: '#FBBC05', name: 'yellow', label: 'Growth', icon: <TrendingUp className="w-7 h-7 lg:w-8 lg:h-8 text-white drop-shadow" /> },
+                  { color: '#34A853', name: 'green', label: 'Impact', icon: <Sparkles className="w-7 h-7 lg:w-8 lg:h-8 text-white drop-shadow" /> },
                 ].map((item, index) => (
                   <motion.div
                     key={item.name}
@@ -197,12 +203,7 @@ const GoogleAmbassadorSection = () => {
                     className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-full flex items-center justify-center cursor-pointer group shadow-lg"
                     style={{ backgroundColor: item.color }}
                   >
-                    <motion.div
-                      animate={{ rotate: 360 }}
-                      transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                      className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8 border-2 border-white rounded-full border-t-transparent opacity-80"
-                    />
-                    
+                    {item.icon}
                     {/* Tooltip - hidden on mobile */}
                     <div className="hidden sm:block absolute -bottom-10 left-1/2 transform -translate-x-1/2 bg-gray-800/90 backdrop-blur-sm px-3 py-1 rounded-lg text-white text-xs lg:text-sm opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap pointer-events-none">
                       {item.label}
