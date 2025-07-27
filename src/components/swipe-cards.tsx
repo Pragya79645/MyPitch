@@ -75,6 +75,46 @@ const cardData: Card[] = [
       "Research and development in emerging technologies like AI, blockchain, and IoT for educational applications. Published papers on technology adoption in education, spoke at conferences about the future of learning, and prototyped next-generation educational tools.",
     achievement: "3 research publications, 10+ conference talks",
   },
+  {
+    id: 7,
+    url: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2371&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Collaborative Leadership",
+    category: "Teamwork",
+    description: "Building and leading high-performing tech teams",
+    details:
+      "Led cross-functional teams in developing innovative software solutions. Established agile development practices, implemented code review processes, and fostered a culture of continuous learning. Mentored junior developers and coordinated multiple concurrent projects.",
+    achievement: "Successfully delivered 12+ projects with zero critical bugs",
+  },
+  {
+    id: 8,
+    url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Data Analytics",
+    category: "Analysis",
+    description: "Transforming data into actionable insights",
+    details:
+      "Developed comprehensive analytics dashboards for educational institutions. Implemented machine learning models for student performance prediction, created automated reporting systems, and provided data-driven recommendations that improved academic outcomes by 25%.",
+    achievement: "Analyzed data for 15,000+ students across multiple institutions",
+  },
+  {
+    id: 9,
+    url: "https://images.unsplash.com/photo-1531482615713-2afd69097998?q=80&w=2370&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Mobile Development",
+    category: "Technology",
+    description: "Creating mobile experiences that matter",
+    details:
+      "Developed native and cross-platform mobile applications for educational purposes. Built apps that gamify learning, enable offline access to educational content, and facilitate peer-to-peer learning. Focused on accessibility and user experience design.",
+    achievement: "Created 5 mobile apps with 50,000+ combined downloads",
+  },
+  {
+    id: 10,
+    url: "https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=2369&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    title: "Global Impact",
+    category: "Outreach",
+    description: "Making technology accessible worldwide",
+    details:
+      "Participated in international tech conferences and workshops. Collaborated with global student organizations to promote digital literacy. Developed open-source educational tools used by universities across different continents and contributed to global tech initiatives.",
+    achievement: "Reached students in 25+ countries through various initiatives",
+  },
 ]
 
 const SwipeCards = () => {
@@ -87,7 +127,7 @@ const SwipeCards = () => {
   }
 
   return (
-    <section className="py-20 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden">
+    <section className="py-6 sm:py-8 lg:py-10 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 relative overflow-hidden min-h-screen">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div
@@ -98,45 +138,45 @@ const SwipeCards = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="text-center mb-8 sm:mb-12 lg:mb-16"
         >
           <motion.div
             initial={{ scale: 0.9 }}
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-6 py-3 rounded-full text-sm font-medium mb-6"
+            className="inline-flex items-center gap-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 px-4 sm:px-6 py-2 sm:py-3 rounded-full text-xs sm:text-sm font-medium mb-4 sm:mb-6"
           >
-            <span className="text-lg">🎯</span>
+            <span className="text-base sm:text-lg">🎯</span>
             Interactive Journey
           </motion.div>
 
-          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white mb-6">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white mb-4 sm:mb-6">
             My{" "}
             <span className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent">
               Journey
             </span>
           </h2>
 
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8 leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-6 sm:mb-8 leading-relaxed px-4">
             Swipe through the key moments and experiences that shaped my path as a developer, community builder, and
             future Google Student Ambassador
           </p>
 
-          <div className="w-32 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 mx-auto rounded-full"></div>
+          <div className="w-24 sm:w-32 h-1 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 mx-auto rounded-full"></div>
         </motion.div>
 
-        <div className="flex flex-col xl:flex-row items-start justify-center gap-12 max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row items-start justify-center gap-8 lg:gap-12 max-w-7xl mx-auto">
           {/* Swipe Cards Container */}
-          <div className="flex-1 flex justify-center">
+          <div className="w-full lg:flex-1 flex justify-center order-1">
             <div className="relative">
               {/* Cards Stack */}
-              <div className="relative w-80 h-[500px] perspective-1000">
+              <div className="relative w-72 sm:w-80 lg:w-96 perspective-1000" style={{ height: 'clamp(400px, 60vw, 500px)' }}>
                 {cards.length === 0 ? (
                   // Empty State
                   <motion.div
@@ -144,17 +184,17 @@ const SwipeCards = () => {
                     animate={{ opacity: 1, scale: 1 }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-gray-700/30 text-center max-w-sm">
-                      <div className="text-6xl mb-4">🎉</div>
-                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">Journey Complete!</h3>
-                      <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/30 text-center max-w-sm mx-4">
+                      <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">🎉</div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">Journey Complete!</h3>
+                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                         You've explored my entire journey. Ready to build something amazing together?
                       </p>
                       <button
                         onClick={resetCards}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105"
+                        className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base"
                       >
-                        <RotateCcw className="w-4 h-4" />
+                        <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
                         Restart Journey
                       </button>
                     </div>
@@ -180,10 +220,14 @@ const SwipeCards = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 }}
-                  className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 text-center"
+                  className="absolute -bottom-16 sm:-bottom-20 left-1/2 transform -translate-x-1/2 text-center"
                 >
-                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-2xl px-6 py-4 shadow-lg border border-white/20 dark:border-gray-700/30">
-                 <p>Swipe right</p>
+                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-4 shadow-lg border border-white/20 dark:border-gray-700/30">
+                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
+                      <span className="hidden sm:inline">Swipe </span>
+                      <span className="text-green-600 dark:text-green-400 font-semibold">→</span>
+                      <span className="hidden sm:inline"> to explore</span>
+                    </p>
                   </div>
                 </motion.div>
               )}
@@ -191,36 +235,36 @@ const SwipeCards = () => {
           </div>
 
           {/* Information Panel */}
-          <div className="flex-1 max-w-lg space-y-6">
+          <div className="w-full lg:flex-1 lg:max-w-lg space-y-4 sm:space-y-6 order-2">
             {/* Current Card Info */}
             {cards.length > 0 && (
               <motion.div
                 key={cards[cards.length - 1]?.id}
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-3xl p-8 shadow-2xl border border-white/20 dark:border-gray-700/30"
+                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/30"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-3 h-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></div>
-                  <span className="text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
+                <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></div>
+                  <span className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
                     {cards[cards.length - 1]?.category}
                   </span>
                 </div>
 
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
                   {cards[cards.length - 1]?.title}
                 </h3>
 
-                <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
                   {cards[cards.length - 1]?.details}
                 </p>
 
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-2xl p-4 border border-indigo-200/30 dark:border-indigo-700/30">
-                  <div className="flex items-center gap-2 mb-2">
-                    <span className="text-lg">🏆</span>
-                    <span className="text-sm font-semibold text-indigo-700 dark:text-indigo-300">Achievement</span>
+                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-indigo-200/30 dark:border-indigo-700/30">
+                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
+                    <span className="text-base sm:text-lg">🏆</span>
+                    <span className="text-xs sm:text-sm font-semibold text-indigo-700 dark:text-indigo-300">Achievement</span>
                   </div>
-                  <p className="text-indigo-800 dark:text-indigo-200 font-medium">
+                  <p className="text-xs sm:text-sm text-indigo-800 dark:text-indigo-200 font-medium leading-relaxed">
                     {cards[cards.length - 1]?.achievement}
                   </p>
                 </div>
@@ -233,33 +277,33 @@ const SwipeCards = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-gradient-to-br from-white/60 to-white/40 dark:from-gray-800/60 dark:to-gray-800/40 backdrop-blur-xl rounded-3xl p-6 shadow-xl border border-white/20 dark:border-gray-700/30"
+              className="bg-gradient-to-br from-white/60 to-white/40 dark:from-gray-800/60 dark:to-gray-800/40 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl border border-white/20 dark:border-gray-700/30"
             >
-              <div className="flex items-center justify-between mb-4">
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Journey Progress</h4>
-                <span className="text-sm text-gray-500 dark:text-gray-400">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">Journey Progress</h4>
+                <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
                   {cardData.length - cards.length} / {cardData.length}
                 </span>
               </div>
 
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-3 mb-4 overflow-hidden">
+              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 sm:h-3 mb-3 sm:mb-4 overflow-hidden">
                 <motion.div
-                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 h-3 rounded-full"
+                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 h-2 sm:h-3 rounded-full"
                   initial={{ width: 0 }}
                   animate={{ width: `${((cardData.length - cards.length) / cardData.length) * 100}%` }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
                 />
               </div>
 
-              <div className="grid grid-cols-2 gap-4 text-center">
-                <div className="bg-white/50 dark:bg-gray-700/50 rounded-xl p-3">
-                  <div className="text-2xl font-bold text-indigo-600 dark:text-indigo-400">
+              <div className="grid grid-cols-2 gap-3 sm:gap-4 text-center">
+                <div className="bg-white/50 dark:bg-gray-700/50 rounded-lg sm:rounded-xl p-2 sm:p-3">
+                  <div className="text-lg sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400">
                     {cardData.length - cards.length}
                   </div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">Explored</div>
                 </div>
-                <div className="bg-white/50 dark:bg-gray-700/50 rounded-xl p-3">
-                  <div className="text-2xl font-bold text-purple-600 dark:text-purple-400">{cards.length}</div>
+                <div className="bg-white/50 dark:bg-gray-700/50 rounded-lg sm:rounded-xl p-2 sm:p-3">
+                  <div className="text-lg sm:text-2xl font-bold text-purple-600 dark:text-purple-400">{cards.length}</div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">Remaining</div>
                 </div>
               </div>
@@ -271,15 +315,14 @@ const SwipeCards = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 backdrop-blur-sm rounded-3xl p-6 border border-indigo-200/30 dark:border-indigo-700/30"
+              className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-indigo-200/30 dark:border-indigo-700/30"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-2xl">💡</span>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Why This Interactive Experience?</h4>
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                <span className="text-xl sm:text-2xl">💡</span>
+                <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">Why This Interactive Experience?</h4>
               </div>
-              <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-                As a Google Student Ambassador, I believe in making technology accessible and engaging. This interactive
-                journey reflects my approach to education - hands-on, intuitive, and memorable.
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
+                To turn my journey into an interactive experience — letting viewers swipe through real moments that shaped who I am. It reflects how I engage, grow, and contribute across tech, design, and community
               </p>
             </motion.div>
 
@@ -289,14 +332,14 @@ const SwipeCards = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className={`p-4 rounded-2xl text-center ${
+                className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl text-center ${
                   lastDirection === "right"
                     ? "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
                     : "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
                 }`}
               >
-                <div className="text-2xl mb-2">{lastDirection === "right" ? "💚" : "👋"}</div>
-                <p className="font-medium">
+                <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{lastDirection === "right" ? "💚" : "👋"}</div>
+                <p className="font-medium text-sm sm:text-base">
                   {lastDirection === "right" ? "Thanks for the interest!" : "No worries, keep exploring!"}
                 </p>
               </motion.div>
@@ -360,59 +403,52 @@ const Card = ({
       onDragEnd={handleDragEnd}
       whileDrag={{ scale: 1.05 }}
     >
-      <div className="w-80 h-[500px] bg-white dark:bg-gray-800 rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-700/30">
-        {/* Image */}
-        <div className="h-64 w-full overflow-hidden relative">
+      <div className="w-full h-full bg-white dark:bg-gray-800 rounded-2xl sm:rounded-3xl shadow-2xl overflow-hidden border border-white/20 dark:border-gray-700/30">
+        {/* Image Only - Full Card */}
+        <div className="h-full w-full overflow-hidden relative">
           <img
             src={card.url || "/placeholder.svg"}
             alt={card.title}
             className="h-full w-full object-cover"
             draggable={false}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
 
           {/* Category Badge */}
-          <div className="absolute top-4 left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-3 py-1">
+          <div className="absolute top-3 sm:top-4 left-3 sm:left-4 bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-full px-2 sm:px-3 py-1">
             <span className="text-xs font-semibold text-gray-700 dark:text-gray-300 uppercase tracking-wider">
               {card.category}
             </span>
           </div>
-        </div>
 
-        {/* Content */}
-        <div className="p-6 h-[236px] flex flex-col">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-3 line-clamp-2">{card.title}</h3>
-
-          <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed mb-4 flex-1 line-clamp-4">
-            {card.description}
-          </p>
-
-          <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl p-3 border border-indigo-200/30 dark:border-indigo-700/30">
-            <div className="flex items-center gap-2 mb-1">
-              <span className="text-sm">🎯</span>
-              <span className="text-xs font-semibold text-indigo-700 dark:text-indigo-300">Impact</span>
-            </div>
-            <p className="text-xs text-indigo-800 dark:text-indigo-200 font-medium line-clamp-2">{card.achievement}</p>
+          {/* Title Overlay */}
+          <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
+            <h3 className="text-lg sm:text-xl lg:text-2xl font-bold text-white mb-2 drop-shadow-lg">
+              {card.title}
+            </h3>
+            <p className="text-xs sm:text-sm text-white/90 line-clamp-2 drop-shadow">
+              {card.description}
+            </p>
           </div>
         </div>
 
         {/* Swipe Indicators */}
         <motion.div
-          className="absolute left-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-red-500 rounded-full flex items-center justify-center opacity-0"
+          className="absolute left-4 sm:left-8 top-1/2 transform -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-red-500 rounded-full flex items-center justify-center opacity-0"
           style={{
             opacity: useTransform(x, [-100, -50], [1, 0]),
           }}
         >
-          <X className="w-8 h-8 text-white" />
+          <X className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
         </motion.div>
 
         <motion.div
-          className="absolute right-8 top-1/2 transform -translate-y-1/2 w-16 h-16 bg-green-500 rounded-full flex items-center justify-center opacity-0"
+          className="absolute right-4 sm:right-8 top-1/2 transform -translate-y-1/2 w-12 h-12 sm:w-16 sm:h-16 bg-green-500 rounded-full flex items-center justify-center opacity-0"
           style={{
             opacity: useTransform(x, [50, 100], [1, 0]),
           }}
         >
-          <Heart className="w-8 h-8 text-white" />
+          <Heart className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
         </motion.div>
 
         {/* Drag hint for top card */}
@@ -420,8 +456,8 @@ const Card = ({
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: [0, 1, 0] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, delay: 2 }}
-            className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white text-xs px-3 py-1 rounded-full"
+            transition={{ duration: 2, repeat: Infinity, delay: 2 }}
+            className="absolute bottom-3 sm:bottom-4 left-1/2 transform -translate-x-1/2 bg-black/70 text-white text-xs px-2 sm:px-3 py-1 rounded-full"
           >
             Drag me! 👆
           </motion.div>
