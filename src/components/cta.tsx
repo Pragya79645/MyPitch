@@ -110,12 +110,23 @@ const GoogleAmbassadorSection = () => {
             className="relative"
           >
             {/* Modern glassmorphism card */}
-            <div className="relative backdrop-blur-xl bg-white/70 border border-white/40 rounded-3xl lg:rounded-[2.5rem] p-8 sm:p-12 lg:p-16 xl:p-20 shadow-xl">
-              {/* Subtle corner accents - hidden on mobile */}
-              <div className="hidden md:block absolute top-0 left-0 w-12 h-12 lg:w-16 lg:h-16 border-t-3 border-l-3 border-blue-500 rounded-tl-3xl opacity-60" />
-              <div className="hidden md:block absolute top-0 right-0 w-12 h-12 lg:w-16 lg:h-16 border-t-3 border-r-3 border-red-500 rounded-tr-3xl opacity-60" />
-              <div className="hidden md:block absolute bottom-0 left-0 w-12 h-12 lg:w-16 lg:h-16 border-b-3 border-l-3 border-yellow-500 rounded-bl-3xl opacity-60" />
-              <div className="hidden md:block absolute bottom-0 right-0 w-12 h-12 lg:w-16 lg:h-16 border-b-3 border-r-3 border-green-500 rounded-br-3xl opacity-60" />
+            <div className="relative bg-white/40 dark:bg-gray-900/40 backdrop-blur-[32px] rounded-[3rem] p-10 sm:p-16 lg:p-24 xl:p-28 shadow-[0_8px_40px_0_rgba(80,80,120,0.10)] overflow-hidden">
+              {/* Animated blurred gradient background */}
+              <motion.div
+                aria-hidden="true"
+                initial={{ backgroundPosition: '0% 50%' }}
+                animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
+                transition={{ duration: 16, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute inset-0 rounded-[3rem] z-0 pointer-events-none"
+                style={{
+                  background: 'radial-gradient(ellipse 80% 60% at 30% 30%, #4285F4cc 0%, transparent 70%), radial-gradient(ellipse 60% 80% at 70% 70%, #EA4335b3 0%, transparent 70%), radial-gradient(ellipse 60% 60% at 60% 30%, #FBBC05b3 0%, transparent 70%), radial-gradient(ellipse 60% 60% at 30% 70%, #34A853b3 0%, transparent 70%)',
+                  filter: 'blur(32px)',
+                  opacity: 0.18,
+                  backgroundSize: '200% 200%',
+                  backgroundPosition: '0% 50%'
+                }}
+              />
+              <div className="pointer-events-none absolute inset-0 rounded-[3rem] ring-1 ring-white/30 dark:ring-gray-800/30 shadow-inner" style={{boxShadow:'0 0 60px 0 rgba(66,133,244,0.07), 0 1px 8px 0 rgba(0,0,0,0.04)'}} />
               
               {/* Floating quote - responsive */}
               <motion.div

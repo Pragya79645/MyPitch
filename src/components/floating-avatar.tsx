@@ -443,9 +443,15 @@ export default function FloatingAvatar() {
         transition={{ duration: 6, repeat: Infinity, delay: 5 }}
         className="absolute -bottom-20 left-1/2 transform -translate-x-1/2 text-center"
       >
-        <p className="text-sm text-black dark:text-black bg-white/80 dark:bg-black px-4 py-4 rounded-full  border border-black dark:border-black">
-          ✨ Click to interact
-        </p>
+        <button
+          className="flex items-center gap-2 px-6 py-3 rounded-full shadow-xl border-2 border-blue-700 dark:border-green-400 bg-gradient-to-r from-blue-600 via-red-500 to-green-500 text-base font-extrabold tracking-tight text-white dark:text-white transition hover:scale-105 hover:shadow-2xl focus:outline-none focus:ring-2 focus:ring-blue-400"
+          style={{ boxShadow: '0 4px 24px 0 rgba(66,133,244,0.18)', borderWidth: 2 }}
+        >
+          <span className="text-lg">🖱️</span>
+          <span className="font-extrabold" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.01em' }}>
+            Click or tap to interact
+          </span>
+        </button>
       </motion.div>
     </div>
   )

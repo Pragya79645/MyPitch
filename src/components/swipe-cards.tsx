@@ -160,25 +160,73 @@ const SwipeCards = () => {
               {/* Cards Stack */}
               <div className="relative w-72 sm:w-80 lg:w-96 perspective-1000" style={{ height: 'clamp(400px, 60vw, 500px)' }}>
                 {cards.length === 0 ? (
-                  // Empty State
+                  // Modern Journey Complete State
                   <motion.div
-                    initial={{ opacity: 0, scale: 0.8 }}
+                    initial={{ opacity: 0, scale: 0.9 }}
                     animate={{ opacity: 1, scale: 1 }}
                     className="absolute inset-0 flex items-center justify-center"
                   >
-                    <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/30 text-center max-w-sm mx-4">
-                      <div className="text-4xl sm:text-6xl mb-3 sm:mb-4">🎉</div>
-                      <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4">Journey Complete!</h3>
-                      <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
-                        You've explored my entire journey. Ready to build something amazing together?
-                      </p>
-                      <button
-                        onClick={resetCards}
-                        className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full font-semibold hover:shadow-lg transition-all duration-300 hover:scale-105 text-sm sm:text-base"
-                      >
-                        <RotateCcw className="w-3 h-3 sm:w-4 sm:h-4" />
-                        Restart Journey
-                      </button>
+                    <div className="relative max-w-md w-full px-4">
+                      <div className="absolute -top-8 left-1/2 -translate-x-1/2 z-0 pointer-events-none select-none">
+                        <svg className="w-[5rem] sm:w-[6rem] h-[5rem] sm:h-[6rem] opacity-20 blur-[1.5px]" viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <defs>
+                            <linearGradient id="trophyGrad" x1="0" y1="0" x2="80" y2="80" gradientUnits="userSpaceOnUse">
+                              <stop stopColor="#6366f1" />
+                              <stop offset="0.5" stopColor="#a21caf" />
+                              <stop offset="1" stopColor="#06b6d4" />
+                            </linearGradient>
+                          </defs>
+                          <circle cx="40" cy="40" r="36" fill="url(#trophyGrad)" opacity="0.15" />
+                          <path d="M40 60c-7 0-12-5-12-12V28h24v20c0 7-5 12-12 12Z" fill="url(#trophyGrad)" />
+                          <rect x="32" y="62" width="16" height="6" rx="2" fill="url(#trophyGrad)" />
+                          <path d="M28 28c-6 0-10 4-10 10 0 5 4 9 9 10M52 28c6 0 10 4 10 10 0 5-4 9-9 10" stroke="#a21caf" strokeWidth="2" />
+                          <circle cx="20" cy="20" r="2" fill="#facc15" />
+                          <circle cx="60" cy="18" r="1.5" fill="#f472b6" />
+                          <circle cx="65" cy="35" r="1.2" fill="#06b6d4" />
+                        </svg>
+                      </div>
+                      <div className="relative z-10 rounded-3xl bg-white/70 dark:bg-gray-900/80 backdrop-blur-2xl border-2 border-transparent bg-clip-padding p-8 sm:p-10 shadow-2xl flex flex-col items-center text-center overflow-hidden" style={{ borderImage: 'linear-gradient(90deg, #6366f1 0%, #a21caf 50%, #06b6d4 100%) 1' }}>
+                        <div className="mb-2 flex items-center justify-center">
+                          <svg className="w-12 h-12 sm:w-16 sm:h-16 animate-bounce-slow" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <linearGradient id="trophyGrad2" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#6366f1" />
+                                <stop offset="0.5" stopColor="#a21caf" />
+                                <stop offset="1" stopColor="#06b6d4" />
+                              </linearGradient>
+                            </defs>
+                            <circle cx="24" cy="24" r="22" fill="url(#trophyGrad2)" opacity="0.13" />
+                            <path d="M24 36c-4.2 0-7.2-3-7.2-7.2V16h14.4v12.8c0 4.2-3 7.2-7.2 7.2Z" fill="url(#trophyGrad2)" />
+                            <rect x="19.2" y="37.2" width="9.6" height="3.6" rx="1.5" fill="url(#trophyGrad2)" />
+                            <path d="M16 16c-3.6 0-6 2.4-6 6 0 3 2.4 5.4 5.4 6M32 16c3.6 0 6 2.4 6 6 0 3-2.4 5.4-5.4 6" stroke="#a21caf" strokeWidth="1.2" />
+                            <circle cx="10" cy="10" r="1.2" fill="#facc15" />
+                            <circle cx="36" cy="9" r="1" fill="#f472b6" />
+                            <circle cx="39" cy="19" r="0.8" fill="#06b6d4" />
+                          </svg>
+                        </div>
+                        <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 bg-clip-text text-transparent mb-2 tracking-tight drop-shadow-lg">Journey Complete!</h3>
+                        <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 font-medium mb-6 leading-relaxed drop-shadow">
+                          You've explored my entire journey.<br />Ready to build something amazing together?
+                        </p>
+                        <button
+                          onClick={resetCards}
+                          className="inline-flex items-center gap-2 bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 text-white px-6 py-3 rounded-full font-bold shadow-lg hover:scale-105 hover:shadow-2xl transition-all duration-300 text-base sm:text-lg"
+                        >
+                          <RotateCcw className="w-5 h-5" />
+                          Restart Journey
+                        </button>
+                        {/* Decorative confetti dots */}
+                        <div className="absolute bottom-2 left-4 flex gap-1 opacity-60">
+                          <span className="w-2 h-2 rounded-full bg-indigo-400" />
+                          <span className="w-2 h-2 rounded-full bg-purple-400" />
+                          <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                        </div>
+                        <div className="absolute bottom-2 right-4 flex gap-1 opacity-60">
+                          <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                          <span className="w-2 h-2 rounded-full bg-indigo-400" />
+                          <span className="w-2 h-2 rounded-full bg-purple-400" />
+                        </div>
+                      </div>
                     </div>
                   </motion.div>
                 ) : (
@@ -202,14 +250,29 @@ const SwipeCards = () => {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 1 }}
-                  className="absolute -bottom-16 sm:-bottom-20 left-1/2 transform -translate-x-1/2 text-center"
+                  className="absolute -bottom-12 sm:-bottom-14 left-1/2 transform -translate-x-1/2 text-center z-20"
                 >
-                  <div className="bg-white/90 dark:bg-gray-800/90 backdrop-blur-sm rounded-xl sm:rounded-2xl px-4 sm:px-6 py-2 sm:py-4 shadow-lg border border-white/20 dark:border-gray-700/30">
-                    <p className="text-sm sm:text-base text-gray-700 dark:text-gray-300">
-                      <span className="hidden sm:inline">Swipe </span>
-                      <span className="text-green-600 dark:text-green-400 font-semibold">→</span>
-                      <span className="hidden sm:inline"> to explore</span>
-                    </p>
+                  <div className="relative inline-block">
+                    <div className="absolute inset-0 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#4285F4] via-[#FBBC05] to-[#34A853] blur-[2px] opacity-60 animate-pulse" style={{ filter: 'blur(4px)' }} />
+                    <div className="relative bg-white/95 dark:bg-gray-900/95 backdrop-blur-xl rounded-xl sm:rounded-2xl px-4 sm:px-6 py-1.5 sm:py-2.5 shadow-xl border-2 border-transparent bg-clip-padding" style={{ borderImage: 'linear-gradient(90deg, #4285F4 0%, #FBBC05 50%, #34A853 100%) 1' }}>
+                      <div className="flex items-center justify-center gap-2">
+                        <span className="hidden sm:inline text-sm sm:text-base font-extrabold text-[#4285F4] drop-shadow">Swipe</span>
+                        <span className="inline-flex items-center justify-center">
+                          <svg className="w-5 h-5 sm:w-6 sm:h-6 animate-bounce-x" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                              <linearGradient id="arrowGrad" x1="0" y1="0" x2="32" y2="0" gradientUnits="userSpaceOnUse">
+                                <stop stopColor="#4285F4" />
+                                <stop offset="0.5" stopColor="#FBBC05" />
+                                <stop offset="1" stopColor="#34A853" />
+                              </linearGradient>
+                            </defs>
+                            <path d="M6 16h18M20 10l6 6-6 6" stroke="url(#arrowGrad)" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </span>
+                        <span className="hidden sm:inline text-sm sm:text-base font-extrabold text-[#34A853] drop-shadow">to explore</span>
+                      </div>
+                      <span className="block sm:hidden text-xs font-bold text-[#4285F4] mt-1">Swipe <span className="text-[#34A853]">→</span></span>
+                    </div>
                   </div>
                 </motion.div>
               )}
@@ -224,71 +287,67 @@ const SwipeCards = () => {
                 key={cards[cards.length - 1]?.id}
                 initial={{ opacity: 0, x: 30 }}
                 animate={{ opacity: 1, x: 0 }}
-                className="bg-white/80 dark:bg-gray-800/80 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-2xl border border-white/20 dark:border-gray-700/30"
+                className="relative rounded-3xl bg-white/70 dark:bg-gray-900/80 backdrop-blur-2xl border-2 border-transparent bg-clip-padding p-7 sm:p-10 shadow-2xl flex flex-col gap-4 sm:gap-6 overflow-hidden" style={{ borderImage: 'linear-gradient(90deg, #6366f1 0%, #a21caf 50%, #06b6d4 100%) 1' }}
               >
-                <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                  <div className="w-2 h-2 sm:w-3 sm:h-3 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600"></div>
-                  <span className="text-xs sm:text-sm font-semibold text-indigo-600 dark:text-indigo-400 uppercase tracking-wider">
-                    {cards[cards.length - 1]?.category}
-                  </span>
+                {/* Gradient accent bar */}
+                <div className="absolute left-0 top-6 bottom-6 w-1.5 rounded-full bg-gradient-to-b from-[#4285F4] via-[#EA4335] to-[#34A853] blur-[1px] opacity-80" />
+                {/* Category and Title */}
+                <div className="flex items-center gap-3 mb-1">
+                  <div className="w-3 h-3 rounded-full bg-gradient-to-r from-[#4285F4] via-[#FBBC05] to-[#EA4335] shadow-md"></div>
+                  <span className="text-xs sm:text-sm font-bold text-[#4285F4] dark:text-[#8AB4F8] uppercase tracking-wider drop-shadow">{cards[cards.length - 1]?.category}</span>
                 </div>
-
-                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white mb-3">
-                  {cards[cards.length - 1]?.title}
-                </h3>
-
-                <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 mb-4 sm:mb-6 leading-relaxed">
+                <h3 className="text-2xl sm:text-3xl font-extrabold bg-gradient-to-r from-[#4285F4] via-[#FBBC05] to-[#34A853] bg-clip-text text-transparent mb-1 tracking-tight drop-shadow-lg">{cards[cards.length - 1]?.title}</h3>
+                {/* Details */}
+                <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 font-medium leading-relaxed mb-2 drop-shadow">
                   {cards[cards.length - 1]?.details}
                 </p>
-
-                <div className="bg-gradient-to-r from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 border border-indigo-200/30 dark:border-indigo-700/30">
-                  <div className="flex items-center gap-2 mb-1 sm:mb-2">
-                    <span className="text-base sm:text-lg">🏆</span>
-                    <span className="text-xs sm:text-sm font-semibold text-indigo-700 dark:text-indigo-300">Achievement</span>
+                {/* Achievement */}
+                <div className="flex items-center gap-3 bg-gradient-to-r from-[#E3F2FD]/80 via-[#FFFDE7]/80 to-[#E8F5E9]/80 dark:from-[#1A237E]/30 dark:via-[#263238]/30 dark:to-[#1B5E20]/30 rounded-2xl p-4 border border-[#4285F4]/20 dark:border-[#4285F4]/30 shadow-inner">
+                  <svg className="w-7 h-7" fill="none" viewBox="0 0 32 32">
+                    <circle cx="16" cy="16" r="14" fill="#4285F4" opacity=".13" />
+                    <path d="M16 24c-4 0-7-3-7-7V10h14v7c0 4-3 7-7 7Z" fill="#FBBC05" />
+                    <rect x="12" y="25" width="8" height="3" rx="1.2" fill="#34A853" />
+                    <path d="M9 10c-2.5 0-4 1.5-4 4 0 2 1.5 3.5 3.5 4M23 10c2.5 0 4 1.5 4 4 0 2-1.5 3.5-3.5 4" stroke="#EA4335" strokeWidth="1.2" />
+                  </svg>
+                  <div>
+                    <div className="text-xs sm:text-sm font-bold text-[#EA4335] dark:text-[#EA4335] mb-1 uppercase tracking-wider">Achievement</div>
+                    <div className="text-xs sm:text-base text-[#4285F4] dark:text-[#8AB4F8] font-medium leading-relaxed">{cards[cards.length - 1]?.achievement}</div>
                   </div>
-                  <p className="text-xs sm:text-sm text-indigo-800 dark:text-indigo-200 font-medium leading-relaxed">
-                    {cards[cards.length - 1]?.achievement}
-                  </p>
                 </div>
               </motion.div>
             )}
 
-            {/* Progress & Stats */}
+            {/* Progress & Stats - Redesigned */}
             <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-gradient-to-br from-white/60 to-white/40 dark:from-gray-800/60 dark:to-gray-800/40 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl border border-white/20 dark:border-gray-700/30"
+              className="flex flex-col items-center gap-2 mb-6"
             >
-              <div className="flex items-center justify-between mb-3 sm:mb-4">
-                <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">Journey Progress</h4>
-                <span className="text-xs sm:text-sm text-gray-500 dark:text-gray-400">
-                  {cardData.length - cards.length} / {cardData.length}
-                </span>
-              </div>
-
-              <div className="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-2 sm:h-3 mb-3 sm:mb-4 overflow-hidden">
-                <motion.div
-                  className="bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 h-2 sm:h-3 rounded-full"
-                  initial={{ width: 0 }}
-                  animate={{ width: `${((cardData.length - cards.length) / cardData.length) * 100}%` }}
-                  transition={{ duration: 0.5, ease: "easeOut" }}
-                />
-              </div>
-
-              <div className="grid grid-cols-2 gap-3 sm:gap-4 text-center">
-                <div className="bg-white/50 dark:bg-gray-700/50 rounded-lg sm:rounded-xl p-2 sm:p-3">
-                  <div className="text-lg sm:text-2xl font-bold text-indigo-600 dark:text-indigo-400">
-                    {cardData.length - cards.length}
+              <div className="relative w-full flex justify-center">
+                <div className="relative w-64 max-w-full">
+                  <div className="absolute inset-0 rounded-full bg-white/30 dark:bg-gray-900/40 backdrop-blur-md border border-white/30 dark:border-gray-800/60 shadow-lg" style={{ filter: 'blur(2px)' }} />
+                  <motion.div
+                    className="relative h-3 rounded-full overflow-hidden shadow-xl"
+                    style={{
+                      background: "linear-gradient(90deg, #6366f1 0%, #a21caf 50%, #06b6d4 100%)",
+                      width: `${((cardData.length - cards.length) / cardData.length) * 100}%`,
+                      transition: "width 0.5s cubic-bezier(0.4,0,0.2,1)",
+                    }}
+                    initial={{ width: 0 }}
+                    animate={{ width: `${((cardData.length - cards.length) / cardData.length) * 100}%` }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                  >
+                    <span className="block w-full h-full animate-gradient-x rounded-full opacity-60" />
+                  </motion.div>
+                  <div className="absolute inset-0 flex items-center justify-between px-3">
+                    <span className="text-xs font-semibold text-indigo-600 dark:text-indigo-300 drop-shadow">{cardData.length - cards.length} Explored</span>
+                    <span className="text-xs font-semibold text-purple-600 dark:text-purple-300 drop-shadow">{cards.length} Left</span>
                   </div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Explored</div>
-                </div>
-                <div className="bg-white/50 dark:bg-gray-700/50 rounded-lg sm:rounded-xl p-2 sm:p-3">
-                  <div className="text-lg sm:text-2xl font-bold text-purple-600 dark:text-purple-400">{cards.length}</div>
-                  <div className="text-xs text-gray-600 dark:text-gray-400">Remaining</div>
                 </div>
               </div>
+              <span className="text-xs text-gray-500 dark:text-gray-400 mt-1 tracking-wide">Progress: {cardData.length - cards.length} / {cardData.length}</span>
             </motion.div>
 
             {/* Why This Matters */}
@@ -297,15 +356,23 @@ const SwipeCards = () => {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.4 }}
-              className="bg-gradient-to-br from-indigo-500/10 to-purple-500/10 dark:from-indigo-500/20 dark:to-purple-500/20 backdrop-blur-sm rounded-2xl sm:rounded-3xl p-4 sm:p-6 border border-indigo-200/30 dark:border-indigo-700/30"
+              className="relative flex justify-center items-center py-2"
             >
-              <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                <span className="text-xl sm:text-2xl">💡</span>
-                <h4 className="text-base sm:text-lg font-bold text-gray-900 dark:text-white">Why This Interactive Experience?</h4>
+              <div className="relative w-full max-w-xl mx-auto flex items-stretch rounded-3xl overflow-visible shadow-2xl bg-white/60 dark:bg-gray-900/70 backdrop-blur-2xl border border-white/30 dark:border-gray-800/60">
+                {/* Vertical gradient bar */}
+                <div className="hidden sm:block absolute left-0 top-6 bottom-6 w-2 rounded-full bg-gradient-to-b from-indigo-500 via-purple-500 to-cyan-500 blur-[1px] opacity-80" />
+                {/* Large blurred icon background */}
+                <div className="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none select-none">
+                  <span className="text-[6rem] sm:text-[7rem] opacity-10 blur-[2px]">💡</span>
+                </div>
+                {/* Content */}
+                <div className="relative flex-1 px-6 sm:px-12 py-7 sm:py-10 z-10">
+                  <h4 className="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 via-purple-600 to-cyan-600 mb-3 tracking-tight drop-shadow-lg">Why This Interactive Experience?</h4>
+                  <p className="text-base sm:text-lg text-gray-700 dark:text-gray-200 leading-relaxed font-medium drop-shadow">
+                    To turn my journey into an interactive experience — letting viewers swipe through real moments that shaped who I am. It reflects how I engage, grow, and contribute across tech, design, and community
+                  </p>
+                </div>
               </div>
-              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 leading-relaxed">
-                To turn my journey into an interactive experience — letting viewers swipe through real moments that shaped who I am. It reflects how I engage, grow, and contribute across tech, design, and community
-              </p>
             </motion.div>
 
             {/* Last Action Feedback */}
@@ -314,16 +381,26 @@ const SwipeCards = () => {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.8 }}
-                className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl text-center ${
-                  lastDirection === "right"
-                    ? "bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-200"
-                    : "bg-red-100 dark:bg-red-900/30 text-red-800 dark:text-red-200"
-                }`}
+                className="flex justify-center"
               >
-                <div className="text-xl sm:text-2xl mb-1 sm:mb-2">{lastDirection === "right" ? "💚" : "👋"}</div>
-                <p className="font-medium text-sm sm:text-base">
-                  {lastDirection === "right" ? "Thanks for the interest!" : "No worries, keep exploring!"}
-                </p>
+                {lastDirection === "right" ? (
+                  <div className="rounded-2xl bg-green-50/80 dark:bg-green-900/40 backdrop-blur-xl border-2 border-transparent bg-clip-padding px-6 py-4 shadow-xl flex flex-col items-center text-center overflow-hidden" style={{ borderImage: 'linear-gradient(90deg, #22c55e 0%, #06b6d4 100%) 1' }}>
+                    <svg className="w-8 h-8 mb-2" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="16" cy="16" r="15" fill="#22c55e" opacity="0.15" />
+                      <path d="M10 17l4 4 8-8" stroke="#22c55e" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                    <p className="font-bold text-green-700 dark:text-green-300 text-base sm:text-lg mb-1">Thanks for the interest!</p>
+                  </div>
+                ) : (
+                  <div className="rounded-2xl bg-white/70 dark:bg-gray-900/70 backdrop-blur-xl border-2 border-transparent bg-clip-padding px-6 py-4 shadow-xl flex flex-col items-center text-center overflow-hidden" style={{ borderImage: 'linear-gradient(90deg, #f43f5e 0%, #6366f1 100%) 1' }}>
+                    <svg className="w-8 h-8 mb-2" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <circle cx="16" cy="16" r="15" fill="#f43f5e" opacity="0.13" />
+                      <path d="M10 14c1.5 2 3.5 4 6 4s4.5-2 6-4" stroke="#f43f5e" strokeWidth="2" strokeLinecap="round" />
+                      <path d="M12 12h.01M20 12h.01" stroke="#f43f5e" strokeWidth="2" strokeLinecap="round" />
+                    </svg>
+                    <p className="font-bold text-rose-600 dark:text-rose-300 text-base sm:text-lg mb-1">No worries, keep exploring!</p>
+                  </div>
+                )}
               </motion.div>
             )}
           </div>

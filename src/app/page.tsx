@@ -136,15 +136,7 @@ export default function PitchWebsite() {
             className="space-y-6"
           >
             <div className="space-y-4">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.2 }}
-                className="inline-flex items-center gap-2 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 px-4 py-2 rounded-full text-sm font-medium"
-              >
-                <Sparkles className="h-4 w-4" />
-                Google Student Ambassador Candidate
-              </motion.div>
+            
 
               <h1 className="text-5xl lg:text-7xl font-bold leading-tight">
                 <span className="text-gray-900 dark:text-white">Hey Google,</span>
@@ -158,6 +150,19 @@ export default function PitchWebsite() {
                 A passionate developer ready to bridge the gap between Google&apos;s innovation and student communities
                 worldwide.
               </p>
+                <motion.div
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.2 }}
+                  className="inline-flex items-center gap-3 px-6 py-2 rounded-2xl shadow-lg border border-white/60 dark:border-gray-800/60 bg-gradient-to-r from-blue-50 via-white to-green-50 dark:from-blue-900/40 dark:via-gray-800/60 dark:to-green-900/40 text-base font-semibold tracking-tight text-blue-700 dark:text-blue-200"
+                  style={{ boxShadow: '0 4px 24px 0 rgba(66,133,244,0.10)', borderWidth: 1.5 }}
+                >
+                  <Sparkles className="h-5 w-5 text-yellow-400 drop-shadow" />
+                  <span className="bg-gradient-to-r from-blue-600 via-red-500 to-green-500 bg-clip-text text-transparent font-extrabold" style={{ fontFamily: 'Inter, ui-sans-serif, system-ui, sans-serif', letterSpacing: '-0.01em' }}>
+                    Google Student Ambassador Candidate
+                  </span>
+                </motion.div>
+              
             </div>
 
             <div className="flex gap-4">
