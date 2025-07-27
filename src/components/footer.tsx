@@ -9,7 +9,7 @@ export const Example = () => {
         text={
           <>
             <strong>This site</strong> is part of my application for Google Developer Student Club Lead 2025
-            for any issue you may face.
+            
           </>
         }
         examples={[

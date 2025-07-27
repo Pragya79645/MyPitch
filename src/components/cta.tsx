@@ -70,7 +70,7 @@ const GoogleAmbassadorSection = () => {
                   initial={{ backgroundPosition: "0% 50%" }}
                   animate={{ backgroundPosition: "100% 50%" }}
                   transition={{ duration: 4, repeat: Infinity, repeatType: "reverse" }}
-                  className="bg-gradient-to-r from-blue-600 via-red-500 via-yellow-500 to-green-600 bg-200% bg-clip-text text-transparent block"
+                  className="bg-gradient-to-r from-blue-600 via-red-500 to-green-600 bg-200% bg-clip-text text-transparent block"
                   style={{ backgroundSize: "200% 200%" }}
                 >
                   Why Google
@@ -79,7 +79,7 @@ const GoogleAmbassadorSection = () => {
                   initial={{ backgroundPosition: "100% 50%" }}
                   animate={{ backgroundPosition: "0% 50%" }}
                   transition={{ duration: 4, repeat: Infinity, repeatType: "reverse", delay: 2 }}
-                  className="bg-gradient-to-r from-green-600 via-blue-600 via-red-500 to-yellow-500 bg-200% bg-clip-text text-transparent block"
+                  className="bg-gradient-to-r from-green-600 via-blue-600 to-yellow-500 bg-200% bg-clip-text text-transparent block"
                   style={{ backgroundSize: "200% 200%" }}
                 >
                   Student Ambassador?
@@ -92,7 +92,7 @@ const GoogleAmbassadorSection = () => {
                 whileInView={{ scaleX: 1, opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, delay: 0.5 }}
-                className="h-1 bg-gradient-to-r from-blue-500 via-red-500 via-yellow-500 to-green-500 mx-auto rounded-full transform origin-center w-32 sm:w-48 md:w-64"
+                className="h-1 bg-gradient-to-r from-blue-500 via-red-500 to-green-500 mx-auto rounded-full transform origin-center w-32 sm:w-48 md:w-64"
               />
             </motion.div>
           </div>
