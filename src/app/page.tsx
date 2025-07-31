@@ -215,7 +215,7 @@ export default function PitchWebsite() {
                 className="w-full h-full object-cover"
                 poster="/placeholder.svg?height=600&width=1200&text=Video+Pitch+Thumbnail"
               >
-                <source src="/path/to/your/pitch-video.mp4" type="video/mp4" />
+                <source src="/vdo.mp4" type="video/mp4" />
                 <track src="/path/to/captions.vtt" kind="subtitles" srcLang="en" label="English" />
                 Your browser does not support the video tag.
               </video>
